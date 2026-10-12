@@ -1,0 +1,43 @@
+{
+	"id": "3b685d97-7a2d-4eb6-bee2-00580b2f2783",
+	"title": { "en": "Repeat: For", "sr-Latn-RS": "Ponavljanje: Za" },
+	"slug": "5",
+	"width": 7,
+	"height": 5,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 2,
+		"direction": "right"
+	},
+	"target": {
+		"x": 5,
+		"y": 2
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "for"],
+	"defaultActions": [],
+	"looks": {
+		"wall": {
+			"terrain": "amber"
+		}
+	},
+	"optimalActionCount": 3,
+	"optimalIterations": 14,
+	"optimalSolution": [
+		{
+			"action": "for",
+			"count": 4,
+			"children": [
+				{
+					"action": "move-forward"
+				}
+			]
+		}
+	]
+}

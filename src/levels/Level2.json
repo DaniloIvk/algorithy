@@ -1,0 +1,43 @@
+{
+	"id": "f162bca4-329e-4bca-8955-64b6c060bcc9",
+	"title": { "en": "Turn Right", "sr-Latn-RS": "Skreni desno" },
+	"slug": "2",
+	"width": 5,
+	"height": 5,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "wall"],
+		["wall", "ground", "ground", "ground", "wall"],
+		["wall", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 1
+	},
+	"target": {
+		"x": 3,
+		"y": 3
+	},
+	"allowedActions": ["move-forward", "turn-right"],
+	"defaultActions": [],
+	"optimalActionCount": 6,
+	"optimalIterations": 5,
+	"optimalSolution": [
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "turn-right"
+		},
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "move-forward"
+		}
+	]
+}

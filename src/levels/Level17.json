@@ -1,0 +1,64 @@
+{
+	"id": "12638b25-b647-4896-b4d9-a72e29c89777",
+	"title": { "en": "Blue Ice", "sr-Latn-RS": "Plavi led" },
+	"slug": "17",
+	"width": 9,
+	"height": 9,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "ice", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "ice", "ice", "ice", "wall", "wall"],
+		["wall", "wall", "ice", "ice", "ice", "ice", "ice", "wall", "wall"],
+		["wall", "wall", "wall", "ice", "ice", "ice", "ice", "ice", "wall"],
+		["wall", "wall", "ice", "ice", "ice", "ice", "ice", "ice", "wall"],
+		["wall", "ice", "ice", "ice", "ice", "wall", "ice", "ice", "wall"],
+		["wall", "wall", "ice", "ice", "ice", "ice", "ice", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 2,
+		"y": 3,
+		"direction": "right"
+	},
+	"target": {
+		"x": 3,
+		"y": 4
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "for", "while", "switch"],
+	"defaultActions": [],
+	"looks": {
+		"wall": {
+			"terrain": "icy-blue"
+		},
+		"ice": {
+			"terrain": "ice"
+		}
+	},
+	"optimalActionCount": 7,
+	"optimalIterations": 28,
+	"optimalSolution": [
+		{
+			"action": "for",
+			"count": 4,
+			"children": [
+				{
+					"action": "move-forward"
+				},
+				{
+					"action": "turn-right"
+				}
+			]
+		},
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "move-forward"
+				},
+				{
+					"action": "turn-left"
+				}
+			]
+		}
+	]
+}

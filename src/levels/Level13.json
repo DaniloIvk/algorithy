@@ -1,0 +1,74 @@
+{
+	"id": "4b143ff5-6d28-49b9-9e55-b89a02e4b740",
+	"title": { "en": "Rock Bottom", "sr-Latn-RS": "Kamenito dno" },
+	"slug": "13",
+	"width": 9,
+	"height": 9,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "wall", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "hole", "ground", "wall", "ground", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "ground", "ground", "wall", "ground", "wall"],
+		["wall", "ground", "wall", "wall", "wall", "wall", "wall", "ground", "wall"],
+		["wall", "ground", "ground", "ground", "wall", "ground", "ground", "ground", "wall"],
+		["wall", "ground", "wall", "wall", "wall", "ground", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 1,
+		"direction": "right"
+	},
+	"target": {
+		"x": 7,
+		"y": 7
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "while", "switch"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "stone"
+		},
+		"wall": {
+			"terrain": "stone"
+		}
+	},
+	"optimalActionCount": 6,
+	"optimalIterations": 53,
+	"optimalSolution": [
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "move-forward"
+				},
+				{
+					"action": "switch",
+					"branches": [
+						{
+							"condition": "path-ahead",
+							"children": []
+						},
+						{
+							"condition": "path-right",
+							"children": [
+								{
+									"action": "turn-right"
+								}
+							]
+						},
+						{
+							"condition": "path-left",
+							"children": [
+								{
+									"action": "turn-left"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

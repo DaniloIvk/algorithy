@@ -1,0 +1,49 @@
+{
+	"id": "4c5f51e4-5167-44cf-87f3-fe96dcffe9c9",
+	"title": { "en": "Turn Left", "sr-Latn-RS": "Skreni levo" },
+	"slug": "3",
+	"width": 5,
+	"height": 5,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "wall", "wall"],
+		["wall", "wall", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 1
+	},
+	"target": {
+		"x": 3,
+		"y": 3
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right"],
+	"defaultActions": [],
+	"optimalActionCount": 8,
+	"optimalIterations": 7,
+	"optimalSolution": [
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "turn-right"
+		},
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "turn-left"
+		},
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "turn-right"
+		},
+		{
+			"action": "move-forward"
+		}
+	]
+}

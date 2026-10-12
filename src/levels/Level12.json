@@ -1,0 +1,72 @@
+{
+	"id": "43acf9c9-1e31-4c58-ad84-904ebc0e7858",
+	"title": { "en": "Hot Floor: Lava", "sr-Latn-RS": "Vruć pod: Lava" },
+	"slug": "12",
+	"width": 7,
+	"height": 7,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "wall", "wall", "wall"],
+		["wall", "lava", "wall", "ground", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "ground", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 1,
+		"direction": "right"
+	},
+	"target": {
+		"x": 5,
+		"y": 5
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "while", "switch"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "stone"
+		},
+		"wall": {
+			"terrain": "stone"
+		}
+	},
+	"optimalActionCount": 6,
+	"optimalIterations": 27,
+	"optimalSolution": [
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "move-forward"
+				},
+				{
+					"action": "switch",
+					"branches": [
+						{
+							"condition": "path-ahead",
+							"children": []
+						},
+						{
+							"condition": "path-left",
+							"children": [
+								{
+									"action": "turn-left"
+								}
+							]
+						},
+						{
+							"condition": "path-right",
+							"children": [
+								{
+									"action": "turn-right"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

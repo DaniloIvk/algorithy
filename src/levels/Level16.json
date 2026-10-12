@@ -1,0 +1,73 @@
+{
+	"id": "eb61be6b-f5c4-4f48-b974-d5aa54caa524",
+	"title": { "en": "Deep Freeze", "sr-Latn-RS": "Duboki mraz" },
+	"slug": "16",
+	"width": 9,
+	"height": 9,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "wall", "wall", "wall", "ground", "wall"],
+		["wall", "wall", "wall", "ground", "wall", "ice", "ice", "ice", "wall"],
+		["wall", "ground", "ground", "ground", "ice", "ice", "ice", "ice", "wall"],
+		["wall", "ground", "wall", "wall", "ice", "ice", "ice", "ground", "wall"],
+		["wall", "ground", "ground", "ground", "ice", "ice", "ice", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "ground", "wall", "ground", "wall"],
+		["wall", "ground", "ground", "ground", "ground", "ground", "wall", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 1,
+		"direction": "right"
+	},
+	"target": {
+		"x": 7,
+		"y": 7
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "for", "while", "switch"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "frost"
+		},
+		"wall": {
+			"terrain": "frost"
+		},
+		"ice": {
+			"terrain": "ice"
+		}
+	},
+	"optimalActionCount": 6,
+	"optimalIterations": 45,
+	"optimalSolution": [
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "move-forward"
+				},
+				{
+					"action": "switch",
+					"branches": [
+						{
+							"condition": "path-right",
+							"children": [
+								{
+									"action": "turn-right"
+								}
+							]
+						},
+						{
+							"condition": "path-left",
+							"children": [
+								{
+									"action": "turn-left"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,221 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"app_description": "Uči algoritme kroz igru!",
+	"app_footer_copyright": "© Danilo.Ivk 2026",
+	"app_footer_documentation": "Dokumentacija",
+	"app_title": "Algorithy",
+	"block_container_collapsed_count": [
+		{
+			"declarations": ["input count", "local countPlural = count: plural"],
+			"selectors": ["countPlural"],
+			"match": {
+				"countPlural=one": "{count} blok",
+				"countPlural=few": "{count} bloka",
+				"countPlural=other": "{count} blokova"
+			}
+		}
+	],
+	"block_container_place_blocks": "Postavi blokove za ponavljanje",
+	"block_for_header_prefix": "Za",
+	"block_for_header_suffix": "u opsegu (1,",
+	"block_if_else": "inače",
+	"block_if_else_placeholder": "Postavi blokove \"tužnog puta\" ovde",
+	"block_if_label": "Ako",
+	"block_if_then": "onda",
+	"block_if_then_placeholder": "Postavi blokove \"srećnog puta\" ovde",
+	"block_move_forward_label": "Napred",
+	"block_start_label": "Početak",
+	"block_switch_add_branch": "Dodaj granu",
+	"block_switch_branch_condition": "Uslov grane",
+	"block_switch_branch_drop_zone": "Zona za spuštanje grane {condition}",
+	"block_switch_branch_placeholder": "Postavi blokove \"{condition}\" ovde",
+	"block_switch_collapse_branch": "Skupi granu",
+	"block_switch_expand_branch": "Proširi granu",
+	"block_switch_label": "Grananje putanje",
+	"block_switch_move_branch_down": "Pomeri granu dole",
+	"block_switch_move_branch_up": "Pomeri granu gore",
+	"block_switch_remove_branch": "Ukloni granu {condition}",
+	"block_turn_left_label": "Skreni levo",
+	"block_turn_right_label": "Skreni desno",
+	"block_while_header_prefix": "Dok",
+	"block_while_header_suffix": "nije dostignut radi",
+	"builder_author_label": "Tvorac",
+	"builder_author_placeholder": "Anonimus",
+	"builder_back_to_game": "Nazad na igru",
+	"builder_clear_solution": "Obriši rešenje",
+	"builder_direction_down": "Dole",
+	"builder_direction_label": "Smer",
+	"builder_direction_left": "Levo",
+	"builder_direction_right": "Desno",
+	"builder_direction_up": "Gore",
+	"builder_edit": "Izmeni",
+	"builder_instruction": "Izaberi alat, pa crtaj po tabli",
+	"builder_level_title_label": "Naziv nivoa",
+	"builder_level_title_placeholder": "Moj nivo",
+	"builder_open": "Napravi nivo",
+	"builder_open_level": "Otvori stranicu nivoa",
+	"builder_reset_cancel": "Otkaži",
+	"builder_reset_confirm": "Resetovati ceo nivo? Ovo se ne može opozvati.",
+	"builder_save": "Sačuvaj",
+	"builder_save_failed": "Čuvanje nivoa nije uspelo",
+	"builder_share": "Podeli",
+	"builder_share_copied": "Link je kopiran",
+	"builder_share_failed": "Kopiranje linka nije uspelo",
+	"builder_size_label": "Veličina",
+	"builder_solution_label": "Tvoje rešenje",
+	"builder_status_empty_solution": "Napiši program koji stiže do sira",
+	"builder_status_no_name": "Daj svom nivou naziv",
+	"builder_status_not_won": "Program još ne pobeđuje",
+	"builder_status_shape": "Najpre završi prazne blokove",
+	"builder_status_too_heavy": "Taj program je pretežak za izvršavanje",
+	"builder_status_too_long": "Nivo je prevelik za deljenje",
+	"builder_status_too_many_blocks": "Previše blokova (najviše 20)",
+	"builder_test": "Probaj nivo",
+	"builder_theme_amber": "Ćilibar",
+	"builder_theme_boss": "Ljubičasta",
+	"builder_theme_default": "Kamen",
+	"builder_theme_forest": "Šuma",
+	"builder_theme_frost": "Mraz",
+	"builder_theme_icy_blue": "Ledeno plava",
+	"builder_theme_label": "Tema",
+	"builder_theme_legend": "Duboki led",
+	"builder_theme_stone": "Kamenje",
+	"builder_title": "Graditelj Nivoa",
+	"builder_tool_ground": "Tlo",
+	"builder_tool_hole": "Rupa",
+	"builder_tool_ice": "Led",
+	"builder_tool_lava": "Lava",
+	"builder_tool_player": "Miš",
+	"builder_tool_target": "Sir",
+	"builder_tool_wall": "Zid",
+	"common_close": "Zatvori",
+	"common_collapse": "Skupi",
+	"common_expand": "Proširi",
+	"condition_default": "podrazumevano",
+	"condition_path_ahead": "put napred",
+	"condition_path_left": "put levo",
+	"condition_path_right": "put desno",
+	"controls_reset": "Resetuj",
+	"controls_run": "Pokreni",
+	"controls_stop": "Zaustavi",
+	"export_algorithm_copied": "Kopirano",
+	"export_algorithm_copy": "Kopiraj",
+	"export_algorithm_open": "Izvezi kao kod",
+	"export_algorithm_title": "Izvezi algoritam",
+	"language_switcher_label": "Jezik",
+	"level_page_back_to_level_one": "Nazad na nivo 1",
+	"level_page_coming_soon": "Nivo {slug} uskoro stiže.",
+	"level_page_document_title": "{title} - Algorithy",
+	"level_page_invalid_data": "Podaci o nivou nisu ispravni.",
+	"level_page_title": "Nivo {number}",
+	"level_picker_close": "Zatvori nivoe",
+	"level_picker_completed": "završen",
+	"level_picker_completed_aria": "{level}, završen",
+	"level_picker_heading": "Nivoi",
+	"level_picker_next": "Sledeći",
+	"level_picker_next_level": "Sledeći nivo",
+	"level_picker_open": "Otvori nivoe",
+	"level_picker_previous": "Prethodni",
+	"level_picker_previous_level": "Prethodni nivo",
+	"level_status_blocked": "Blokirano - ne može se ići tamo.",
+	"level_status_idle": "Kliknite na \"{run}\" da pokrenete simulaciju.",
+	"level_status_infinite_loop": "Otkrivena je beskonačna petlja - blok \"Dok\" je ponovio iste poteze {count}x",
+	"level_status_not_reached": "Cilj nije dostignut.",
+	"level_status_running": "Pokrenuto...",
+	"level_status_trapped": "Nagazili ste zamku - probajte drugi put.",
+	"level_status_won": "Cilj dostignut!",
+	"not_found_document_title": "Stranica nije pronađena - Algorithy",
+	"not_found_go_home": "Nazad na početnu stranicu",
+	"not_found_message": "Stranica nije pronađena",
+	"outcome_details_blocks_over": [
+		{
+			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "Iskoristili ste {used} blok, a mogli ste samo {optimal}. Pokušajte ponovo da pojednostavite algoritam.",
+				"usedPlural=few": "Iskoristili ste {used} bloka, a mogli ste samo {optimal}. Pokušajte ponovo da pojednostavite algoritam.",
+				"usedPlural=other": "Iskoristili ste {used} blokova, a mogli ste samo {optimal}. Pokušajte ponovo da pojednostavite algoritam."
+			}
+		}
+	],
+	"outcome_details_blocks_perfect": [
+		{
+			"declarations": ["input used", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "Savršeno! Iskoristili ste {used} blok - to je idealan broj za ovaj nivo.",
+				"usedPlural=few": "Savršeno! Iskoristili ste {used} bloka - to je idealan broj za ovaj nivo.",
+				"usedPlural=other": "Savršeno! Iskoristili ste {used} blokova - to je idealan broj za ovaj nivo."
+			}
+		}
+	],
+	"outcome_details_blocks_under": [
+		{
+			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "Neverovatno! Iskoristili ste samo {used} blok - mislili smo da je {optimal} minimum. Nadmašili ste našu procenu!",
+				"usedPlural=few": "Neverovatno! Iskoristili ste samo {used} bloka - mislili smo da je {optimal} minimum. Nadmašili ste našu procenu!",
+				"usedPlural=other": "Neverovatno! Iskoristili ste samo {used} blokova - mislili smo da je {optimal} minimum. Nadmašili ste našu procenu!"
+			}
+		}
+	],
+	"outcome_details_cycles_over": [
+		{
+			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "Iskoristili ste {used} ciklus, a ideal je {optimal}. Pokušajte da smanjite cikluse.",
+				"usedPlural=few": "Iskoristili ste {used} ciklusa, a ideal je {optimal}. Pokušajte da smanjite cikluse.",
+				"usedPlural=other": "Iskoristili ste {used} ciklusa, a ideal je {optimal}. Pokušajte da smanjite cikluse."
+			}
+		}
+	],
+	"outcome_details_cycles_over_repetitions": "Rešenje je ispravno, ali se petlja ponavlja više puta nego što je potrebno.",
+	"outcome_details_cycles_perfect": [
+		{
+			"declarations": ["input used", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "Savršeno! {used} ciklus - idealno za ovaj nivo.",
+				"usedPlural=few": "Savršeno! {used} ciklusa - idealno za ovaj nivo.",
+				"usedPlural=other": "Savršeno! {used} ciklusa - idealno za ovaj nivo."
+			}
+		}
+	],
+	"outcome_details_cycles_under": [
+		{
+			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "Neverovatno! Iskoristili ste samo {used} ciklus - mislili smo da je {optimal} minimum. Nadmašili ste našu procenu!",
+				"usedPlural=few": "Neverovatno! Iskoristili ste samo {used} ciklusa - mislili smo da je {optimal} minimum. Nadmašili ste našu procenu!",
+				"usedPlural=other": "Neverovatno! Iskoristili ste samo {used} ciklusa - mislili smo da je {optimal} minimum. Nadmašili ste našu procenu!"
+			}
+		}
+	],
+	"outcome_modal_aria_label": "Nivo završen",
+	"outcome_modal_next_level": "Sledeći nivo",
+	"outcome_modal_title_won": "Cilj dostignut!",
+	"palette_drop_to_delete": "Prevuci da obrišeš",
+	"playground_cell_ground": "Tlo",
+	"playground_cell_hole": "Rupa",
+	"playground_cell_ice": "Led",
+	"playground_cell_lava": "Lava",
+	"playground_cell_player": "Igrač",
+	"playground_cell_target": "Cilj",
+	"playground_cell_wall": "Zid",
+	"shared_level_anonymous": "Anonimus",
+	"shared_level_by": "Autor: {author}",
+	"shared_level_invalid": "Link nivoa nije ispravan",
+	"shared_level_invalid_hint": "Proveri link ili napravi svoj nivo.",
+	"skin_blue": "Plava",
+	"skin_chooser_description": "Izaberite boju za svog igrača. Možete je promeniti u svakom trenutku iz zaglavlja.",
+	"skin_chooser_saved": "Vaš izbor je sačuvan na ovom uređaju.",
+	"skin_chooser_title": "Izaberite svoju boju",
+	"skin_pick": "Izaberi {color}",
+	"skin_pink": "Roze",
+	"skin_switcher_label": "Boja igrača",
+	"sound_toggle": "Zvuk",
+	"toast_close": "Zatvori obaveštenje"
+}

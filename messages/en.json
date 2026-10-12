@@ -1,0 +1,214 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"app_description": "Learn algorithms through play!",
+	"app_footer_copyright": "© Danilo.Ivk 2026",
+	"app_footer_documentation": "Documentation",
+	"app_title": "Algorithy",
+	"block_container_collapsed_count": [
+		{
+			"declarations": ["input count", "local countPlural = count: plural"],
+			"selectors": ["countPlural"],
+			"match": {
+				"countPlural=one": "{count} block",
+				"countPlural=other": "{count} blocks"
+			}
+		}
+	],
+	"block_container_place_blocks": "Place blocks to repeat",
+	"block_for_header_prefix": "For",
+	"block_for_header_suffix": "in range (1,",
+	"block_if_else": "else",
+	"block_if_else_placeholder": "Place \"sad path\" blocks here",
+	"block_if_label": "If",
+	"block_if_then": "then",
+	"block_if_then_placeholder": "Place \"happy path\" blocks here",
+	"block_move_forward_label": "Move forward",
+	"block_start_label": "Start",
+	"block_switch_add_branch": "Add branch",
+	"block_switch_branch_condition": "Branch condition",
+	"block_switch_branch_drop_zone": "{condition} branch drop zone",
+	"block_switch_branch_placeholder": "Place \"{condition}\" blocks here",
+	"block_switch_collapse_branch": "Collapse branch",
+	"block_switch_expand_branch": "Expand branch",
+	"block_switch_label": "Switch path",
+	"block_switch_move_branch_down": "Move branch down",
+	"block_switch_move_branch_up": "Move branch up",
+	"block_switch_remove_branch": "Remove {condition} branch",
+	"block_turn_left_label": "Turn left",
+	"block_turn_right_label": "Turn right",
+	"block_while_header_prefix": "While",
+	"block_while_header_suffix": "not reached do",
+	"builder_author_label": "Creator",
+	"builder_author_placeholder": "Anonymous",
+	"builder_back_to_game": "Back to the game",
+	"builder_clear_solution": "Clear solution",
+	"builder_direction_down": "Down",
+	"builder_direction_label": "Direction",
+	"builder_direction_left": "Left",
+	"builder_direction_right": "Right",
+	"builder_direction_up": "Up",
+	"builder_edit": "Edit",
+	"builder_instruction": "Pick a tool, then draw on the board",
+	"builder_level_title_label": "Level name",
+	"builder_level_title_placeholder": "My level",
+	"builder_open": "Build a level",
+	"builder_open_level": "Open level page",
+	"builder_reset_cancel": "Cancel",
+	"builder_reset_confirm": "Reset the whole level? This cannot be undone.",
+	"builder_save": "Save",
+	"builder_save_failed": "Could not save this level",
+	"builder_share": "Share",
+	"builder_share_copied": "Link copied",
+	"builder_share_failed": "Could not copy the link",
+	"builder_size_label": "Size",
+	"builder_solution_label": "Your solution",
+	"builder_status_empty_solution": "Write a program that reaches the cheese",
+	"builder_status_no_name": "Give your level a name",
+	"builder_status_not_won": "The program does not win yet",
+	"builder_status_shape": "Finish the empty blocks first",
+	"builder_status_too_heavy": "That program is too heavy to run",
+	"builder_status_too_long": "This level is too large to share",
+	"builder_status_too_many_blocks": "Too many blocks (20 at most)",
+	"builder_test": "Test level",
+	"builder_theme_amber": "Amber",
+	"builder_theme_boss": "Purple",
+	"builder_theme_default": "Rock",
+	"builder_theme_forest": "Forest",
+	"builder_theme_frost": "Frost",
+	"builder_theme_icy_blue": "Icy blue",
+	"builder_theme_label": "Theme",
+	"builder_theme_legend": "Deep ice",
+	"builder_theme_stone": "Stone",
+	"builder_title": "Level Builder",
+	"builder_tool_ground": "Ground",
+	"builder_tool_hole": "Hole",
+	"builder_tool_ice": "Ice",
+	"builder_tool_lava": "Lava",
+	"builder_tool_player": "Mouse",
+	"builder_tool_target": "Cheese",
+	"builder_tool_wall": "Wall",
+	"common_close": "Close",
+	"common_collapse": "Collapse",
+	"common_expand": "Expand",
+	"condition_default": "default",
+	"condition_path_ahead": "path ahead",
+	"condition_path_left": "path to left",
+	"condition_path_right": "path to right",
+	"controls_reset": "Reset",
+	"controls_run": "Run",
+	"controls_stop": "Stop",
+	"export_algorithm_copied": "Copied",
+	"export_algorithm_copy": "Copy",
+	"export_algorithm_open": "Export as code",
+	"export_algorithm_title": "Export algorithm",
+	"language_switcher_label": "Language",
+	"level_page_back_to_level_one": "Back to level 1",
+	"level_page_coming_soon": "Level {slug} is coming soon.",
+	"level_page_document_title": "{title} - Algorithy",
+	"level_page_invalid_data": "Level data is invalid.",
+	"level_page_title": "Level {number}",
+	"level_picker_close": "Close levels",
+	"level_picker_completed": "completed",
+	"level_picker_completed_aria": "{level}, completed",
+	"level_picker_heading": "Levels",
+	"level_picker_next": "Next",
+	"level_picker_next_level": "Next level",
+	"level_picker_open": "Open levels",
+	"level_picker_previous": "Previous",
+	"level_picker_previous_level": "Previous level",
+	"level_status_blocked": "Blocked - can't move there.",
+	"level_status_idle": "Click \"{run}\" to start the simulation.",
+	"level_status_infinite_loop": "Infinite loop detected - while repeated same moves {count}x",
+	"level_status_not_reached": "Didn't reach target.",
+	"level_status_running": "Running...",
+	"level_status_trapped": "Stepped on a trap - try another path.",
+	"level_status_won": "Reached target!",
+	"not_found_document_title": "Page not found - Algorithy",
+	"not_found_go_home": "Go back to homepage",
+	"not_found_message": "Page not found",
+	"outcome_details_blocks_over": [
+		{
+			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "You used {used} block, but you could have used only {optimal}. Try again to simplify your algorithm.",
+				"usedPlural=other": "You used {used} blocks, but you could have used only {optimal}. Try again to simplify your algorithm."
+			}
+		}
+	],
+	"outcome_details_blocks_perfect": [
+		{
+			"declarations": ["input used", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "Perfect! You used {used} block - that is the ideal count for this level.",
+				"usedPlural=other": "Perfect! You used {used} blocks - that is the ideal count for this level."
+			}
+		}
+	],
+	"outcome_details_blocks_under": [
+		{
+			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "Incredible! You used only {used} block - we thought {optimal} was minimal. You beat our estimate!",
+				"usedPlural=other": "Incredible! You used only {used} blocks - we thought {optimal} was minimal. You beat our estimate!"
+			}
+		}
+	],
+	"outcome_details_cycles_over": [
+		{
+			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "You used {used} cycle, but the ideal is {optimal}. Try to reduce cycles.",
+				"usedPlural=other": "You used {used} cycles, but the ideal is {optimal}. Try to reduce cycles."
+			}
+		}
+	],
+	"outcome_details_cycles_over_repetitions": "The solution is correct, but the loop repeats more times than necessary.",
+	"outcome_details_cycles_perfect": [
+		{
+			"declarations": ["input used", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "Perfect! {used} cycle - ideal for this level.",
+				"usedPlural=other": "Perfect! {used} cycles - ideal for this level."
+			}
+		}
+	],
+	"outcome_details_cycles_under": [
+		{
+			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
+			"selectors": ["usedPlural"],
+			"match": {
+				"usedPlural=one": "Incredible! You used only {used} cycle - we thought {optimal} was minimal. You beat our estimate!",
+				"usedPlural=other": "Incredible! You used only {used} cycles - we thought {optimal} was minimal. You beat our estimate!"
+			}
+		}
+	],
+	"outcome_modal_aria_label": "Level completed",
+	"outcome_modal_next_level": "Next level",
+	"outcome_modal_title_won": "Reached target!",
+	"palette_drop_to_delete": "Drop to delete",
+	"playground_cell_ground": "Ground",
+	"playground_cell_hole": "Hole",
+	"playground_cell_ice": "Ice",
+	"playground_cell_lava": "Lava",
+	"playground_cell_player": "Player",
+	"playground_cell_target": "Target",
+	"playground_cell_wall": "Wall",
+	"shared_level_anonymous": "Anonymous",
+	"shared_level_by": "by {author}",
+	"shared_level_invalid": "This level link is not valid",
+	"shared_level_invalid_hint": "Check the link, or build your own level.",
+	"skin_blue": "Blue",
+	"skin_chooser_description": "Choose a color for your player. You can change it anytime from the header.",
+	"skin_chooser_saved": "Your choice is saved on this device.",
+	"skin_chooser_title": "Pick your color",
+	"skin_pick": "Pick {color}",
+	"skin_pink": "Pink",
+	"skin_switcher_label": "Player color",
+	"sound_toggle": "Sound",
+	"toast_close": "Close notification"
+}

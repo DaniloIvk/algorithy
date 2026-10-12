@@ -1,0 +1,15 @@
+telemetry = false
+
+[install]
+ignoreScripts = true
+minimumReleaseAge = 259200 # 3 days
+minimumReleaseAgeExcludes = ["@types/bun", "typescript"]
+auto = "auto"
+
+[test]
+coverage = true
+coverageSkipTestFiles = true
+coveragePathIgnorePatterns = ["**/paraglide/**"]
+randomize = true
+onlyFailures = true
+preload = ["./happydom.ts"]

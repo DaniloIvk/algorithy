@@ -1,0 +1,43 @@
+{
+	"id": "632a1c4c-1aa5-4f1c-80d0-ad15b6d4d687",
+	"title": { "en": "Frostbite: Ice", "sr-Latn-RS": "Mraz: Led" },
+	"slug": "14",
+	"width": 7,
+	"height": 5,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ice", "ice", "ice", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 2,
+		"direction": "right"
+	},
+	"target": {
+		"x": 5,
+		"y": 2
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "for", "while", "switch"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "frost"
+		},
+		"wall": {
+			"terrain": "frost"
+		},
+		"ice": {
+			"terrain": "ice"
+		}
+	},
+	"optimalActionCount": 2,
+	"optimalIterations": 1,
+	"optimalSolution": [
+		{
+			"action": "move-forward"
+		}
+	]
+}

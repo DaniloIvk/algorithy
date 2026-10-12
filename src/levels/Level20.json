@@ -1,0 +1,73 @@
+{
+	"id": "ae8cec02-7e57-4efd-9ccb-4e73cb940916",
+	"title": {
+		"en": "The Last Piece of Cheese (The Blue Path)",
+		"sr-Latn-RS": "Poslednje parče sira (Plava staza)"
+	},
+	"slug": "20",
+	"width": 9,
+	"height": 9,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "ground", "wall", "wall", "ground", "wall"],
+		["wall", "wall", "ground", "ground", "ground", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "ground", "wall", "wall", "ground", "wall", "wall"],
+		["wall", "wall", "wall", "ground", "wall", "wall", "ground", "wall", "wall"],
+		["wall", "wall", "ground", "ground", "ground", "ground", "ground", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 1,
+		"direction": "right"
+	},
+	"target": {
+		"x": 2,
+		"y": 7
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "while"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "legend"
+		},
+		"wall": {
+			"terrain": "legend"
+		}
+	},
+	"optimalActionCount": 7,
+	"optimalIterations": 72,
+	"optimalSolution": [
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "if",
+					"condition": "path-left",
+					"children": [
+						{
+							"action": "turn-left"
+						}
+					],
+					"elseChildren": [
+						{
+							"action": "if",
+							"condition": "path-ahead",
+							"children": [],
+							"elseChildren": [
+								{
+									"action": "turn-right"
+								}
+							]
+						}
+					]
+				},
+				{
+					"action": "move-forward"
+				}
+			]
+		}
+	]
+}

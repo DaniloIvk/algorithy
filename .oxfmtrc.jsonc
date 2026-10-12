@@ -1,0 +1,9 @@
+{
+	"$schema": "../node_modules/oxfmt/configuration_schema.json",
+	"singleQuote": true,
+	"jsxSingleQuote": true,
+	"sortTailwindcss": true,
+	"tabWidth": 2,
+	"useTabs": true,
+	"ignorePatterns": ["src/features/level/Level.tsx"],
+}

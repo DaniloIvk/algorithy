@@ -1,0 +1,167 @@
+@import 'tailwindcss';
+@import './global.css';
+
+@custom-variant v-xs (@media (min-height: 480px));
+@custom-variant v-sm (@media (min-height: 640px));
+@custom-variant v-md (@media (min-height: 800px));
+@custom-variant v-lg (@media (min-height: 1080px));
+@custom-variant v-xl (@media (min-height: 1280px));
+@custom-variant v-2xl (@media (min-height: 1440px));
+@custom-variant v-3xl (@media (min-height: 1600px));
+
+@theme {
+	/*
+	 * Accent colors
+	 */
+	--color-primary: light-dark(oklch(0.585 0.233 277), oklch(0.673 0.182 277));
+	--color-primary-hover: color-mix(in oklch, var(--color-primary) 97%, black);
+	--color-primary-active: color-mix(in oklch, var(--color-primary) 95%, black);
+	--color-primary-light: color-mix(in oklch, var(--color-primary) 90%, white);
+	--color-primary-light-hover: color-mix(in oklch, var(--color-primary) 87%, white);
+	--color-primary-light-active: color-mix(in oklch, var(--color-primary) 100%, black);
+	--color-primary-dark: color-mix(in oklch, var(--color-primary) 90%, black);
+	--color-primary-dark-hover: color-mix(in oklch, var(--color-primary) 87%, black);
+	--color-primary-dark-active: color-mix(in oklch, var(--color-primary) 85%, white);
+
+	/*
+	 * Background colors
+	 */
+	--color-surface: light-dark(oklch(0.965 0.012 285), oklch(0.21 0.03 275));
+	--color-surface-hover: light-dark(oklch(0.935 0.016 285), oklch(0.28 0.035 275));
+	--color-surface-active: light-dark(oklch(0.905 0.02 285), oklch(0.32 0.04 275));
+
+	--color-surface-raised: light-dark(oklch(0.995 0.004 285), oklch(0.27 0.04 275));
+	--color-surface-raised-hover: light-dark(oklch(0.955 0.014 285), oklch(0.33 0.045 275));
+	--color-surface-raised-active: light-dark(oklch(0.925 0.018 285), oklch(0.37 0.05 275));
+
+	/*
+	 * Text and Icon colors
+	 */
+	--color-content: light-dark(oklch(0.17 0.022 285), oklch(0.97 0.012 275));
+	--color-content-hover: light-dark(oklch(0.2 0.022 285), oklch(0.94 0.012 275));
+	--color-content-active: light-dark(oklch(0.22 0.022 285), oklch(0.92 0.012 275));
+
+	--color-content-raised: light-dark(oklch(0.3 0.025 285), oklch(0.92 0.015 275));
+	--color-content-raised-hover: light-dark(oklch(0.33 0.025 285), oklch(0.89 0.015 275));
+	--color-content-raised-active: light-dark(oklch(0.35 0.025 285), oklch(0.87 0.015 275));
+
+	--color-content-masked: light-dark(oklch(0.37 0.04 285), oklch(0.78 0.018 275));
+	--color-content-masked-hover: light-dark(oklch(0.33 0.04 285), oklch(0.81 0.018 275));
+	--color-content-masked-active: light-dark(oklch(0.31 0.04 285), oklch(0.84 0.018 275));
+
+	/*
+	 * Border colors
+	 */
+	--color-border: var(--color-content);
+	--color-border-hover: var(--color-content-hover);
+	--color-border-active: var(--color-content-active);
+
+	--color-border-masked: light-dark(oklch(0.76 0.025 285), oklch(0.45 0.035 275));
+	--color-border-masked-hover: light-dark(oklch(0.71 0.03 285), oklch(0.51 0.04 275));
+	--color-border-masked-active: light-dark(oklch(0.66 0.035 285), oklch(0.57 0.045 275));
+
+	/*
+	 * Status colors
+	 */
+	--color-success: light-dark(oklch(0.47 0.15 150), oklch(0.82 0.15 145));
+	--color-warning: light-dark(oklch(0.47 0.13 70), oklch(0.83 0.15 85));
+	--color-error: light-dark(oklch(0.48 0.2 25), oklch(0.8 0.16 20));
+	--color-info: light-dark(oklch(0.45 0.2 285), oklch(0.82 0.15 275));
+
+	/**
+	 * Screen breakpoints
+	 */
+	--breakpoint-xs: 480px;
+	--breakpoint-sm: 640px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-2xl: 1536px;
+	--breakpoint-3xl: 1792px;
+
+	/*
+	 * Typography
+	 */
+	--font-sans:
+		'Gilroy-Regular', 'Gilroy-Light', 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		sans-serif;
+	--font-mono: ui-monospace, monospace;
+	--font-serif: ui-serif, serif;
+	--font-size-xs: 0.75rem;
+	--font-size-sm: 0.875rem;
+	--font-size-base: 1rem;
+	--font-size-lg: 1.125rem;
+	--font-size-xl: 1.25rem;
+	--font-size-2xl: 1.375rem;
+
+	/*
+	 * Spacing (consistent scale)
+	 */
+	--spacing-xs: 320px;
+	--spacing-sm: 384px;
+	--spacing-md: 448px;
+	--spacing-lg: 512px;
+	--spacing-xl: 576px;
+	--spacing-2xl: 672px;
+	--spacing-3xl: 720px;
+
+	/*
+	 * Radii - one step roomier than the browser default, so controls, cards and
+	 * modals sit on the same curve as the sibling VTS apps.
+	 */
+	--radius: 0.375rem;
+	--radius-sm: 0.375rem;
+	--radius-md: 0.625rem;
+	--radius-lg: 1.125rem;
+	--radius-xl: 1.375rem;
+	--radius-2xl: 1.5rem;
+	--radius-3xl: 1.875rem;
+
+	/*
+	 * Shadows
+	 */
+	--shadow-sm: 0 1px 2px 0 color-mix(in oklch, black 8%, transparent);
+	--shadow-md: 0 4px 12px -2px color-mix(in oklch, black 12%, transparent);
+	--shadow-lg: 0 10px 28px -8px color-mix(in oklch, black 14%, transparent);
+}
+
+@utility skeleton-scrollbar {
+	scrollbar-color: currentColor transparent;
+}
+
+@utility skeleton-scrollbar-* {
+	scrollbar-color: --value(--color-*) transparent;
+}
+
+@utility thead-shadow {
+	box-shadow: inset 0 -2px var(--tw-shadow-color, currentColor);
+	border-bottom: 2px transparent;
+}
+
+@utility tfoot-shadow {
+	box-shadow: inset 0 2px var(--tw-shadow-color, currentColor);
+	border-top: 2px transparent;
+}
+
+@utility grid-cols-auto-fit {
+	grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+
+@utility grid-cols-auto-fill {
+	grid-template-columns: repeat(auto-fill, minmax(0, 1fr));
+}
+
+@utility grid-rows-auto-fit {
+	grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+}
+
+@utility grid-rows-auto-fill {
+	grid-template-rows: repeat(auto-fill, minmax(0, 1fr));
+}
+
+html {
+	/* px, not rem, so the scale ignores the browser's default font size.
+	   Linear on width: 16px at 1920 (Full HD), 32px at 3840 (4K), 64px at 7680
+	   (8K). Phones and small laptops sit at the 14px floor. */
+	font-size: clamp(14px, 0.8333vw, 64px);
+}

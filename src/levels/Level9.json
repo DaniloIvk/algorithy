@@ -1,0 +1,63 @@
+{
+	"id": "1c0d82e4-ee66-4a62-ae0d-71a552beaf70",
+	"title": { "en": "Keep Going: While", "sr-Latn-RS": "Nastavi dalje: Dok" },
+	"slug": "9",
+	"width": 6,
+	"height": 7,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "ground", "wall", "wall"],
+		["wall", "wall", "wall", "ground", "wall", "wall"],
+		["wall", "wall", "ground", "ground", "wall", "wall"],
+		["wall", "wall", "ground", "wall", "wall", "wall"],
+		["wall", "wall", "ground", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 2,
+		"y": 5,
+		"direction": "up"
+	},
+	"target": {
+		"x": 3,
+		"y": 1
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "while"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "forest"
+		},
+		"wall": {
+			"terrain": "forest"
+		}
+	},
+	"optimalActionCount": 7,
+	"optimalIterations": 19,
+	"optimalSolution": [
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "move-forward"
+				},
+				{
+					"action": "if",
+					"condition": "path-ahead",
+					"children": [],
+					"elseChildren": [
+						{
+							"action": "turn-right"
+						},
+						{
+							"action": "move-forward"
+						},
+						{
+							"action": "turn-left"
+						}
+					]
+				}
+			]
+		}
+	]
+}

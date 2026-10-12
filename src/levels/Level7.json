@@ -1,0 +1,58 @@
+{
+	"id": "0e8db040-e4d4-47d1-8fd5-90b6c951df54",
+	"title": { "en": "Decisions: If", "sr-Latn-RS": "Odluke: Ako" },
+	"slug": "7",
+	"width": 7,
+	"height": 7,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "wall", "ground", "ground", "ground", "wall"],
+		["wall", "ground", "wall", "ground", "wall", "ground", "wall"],
+		["wall", "ground", "wall", "ground", "wall", "ground", "wall"],
+		["wall", "ground", "wall", "wall", "wall", "ground", "wall"],
+		["wall", "ground", "ground", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 1,
+		"direction": "down"
+	},
+	"target": {
+		"x": 3,
+		"y": 3
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "for"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "forest"
+		},
+		"wall": {
+			"terrain": "forest"
+		}
+	},
+	"optimalActionCount": 5,
+	"optimalIterations": 70,
+	"optimalSolution": [
+		{
+			"action": "for",
+			"count": 16,
+			"children": [
+				{
+					"action": "move-forward"
+				},
+				{
+					"action": "if",
+					"condition": "path-left",
+					"children": [
+						{
+							"action": "turn-left"
+						}
+					],
+					"elseChildren": []
+				}
+			]
+		}
+	]
+}

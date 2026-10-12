@@ -1,0 +1,73 @@
+{
+	"id": "636fa658-f036-4e6d-9680-0c08ff11e302",
+	"title": { "en": "Frozen Maze", "sr-Latn-RS": "Zamrznuti lavirint" },
+	"slug": "18",
+	"width": 9,
+	"height": 9,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "ice", "ice", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "ice", "ice", "ice", "ice", "wall", "wall"],
+		["wall", "wall", "ice", "ice", "ice", "ice", "ice", "wall", "wall"],
+		["wall", "wall", "wall", "ice", "ice", "ice", "ice", "ice", "wall"],
+		["wall", "wall", "ice", "ice", "ice", "ground", "ice", "ice", "wall"],
+		["wall", "ice", "ice", "ice", "ground", "wall", "ice", "ice", "wall"],
+		["wall", "wall", "ice", "ice", "ice", "ice", "ice", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 2,
+		"y": 3,
+		"direction": "right"
+	},
+	"target": {
+		"x": 1,
+		"y": 6
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "for", "while", "switch"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "icy-blue"
+		},
+		"wall": {
+			"terrain": "icy-blue"
+		},
+		"ice": {
+			"terrain": "ice"
+		}
+	},
+	"optimalActionCount": 6,
+	"optimalIterations": 36,
+	"optimalSolution": [
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "move-forward"
+				},
+				{
+					"action": "switch",
+					"branches": [
+						{
+							"condition": "path-right",
+							"children": [
+								{
+									"action": "turn-right"
+								}
+							]
+						},
+						{
+							"condition": "path-left",
+							"children": [
+								{
+									"action": "turn-left"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

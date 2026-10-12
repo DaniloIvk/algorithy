@@ -1,0 +1,39 @@
+{
+	"id": "d4ecf0c3-f9b0-4461-bc46-3173900fa2bb",
+	"title": { "en": "First Steps: Move Forward", "sr-Latn-RS": "Prvi koraci: Napred" },
+	"slug": "1",
+	"width": 5,
+	"height": 5,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 2
+	},
+	"target": {
+		"x": 3,
+		"y": 2
+	},
+	"allowedActions": ["move-forward"],
+	"defaultActions": [
+		{
+			"action": "move-forward",
+			"movable": false
+		}
+	],
+	"optimalActionCount": 3,
+	"optimalIterations": 2,
+	"optimalSolution": [
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "move-forward"
+		}
+	]
+}

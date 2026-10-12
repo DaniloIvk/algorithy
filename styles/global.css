@@ -1,0 +1,116 @@
+:root {
+	--header-height: 80px;
+	--footer-height: 400px;
+	--sidebar-width: 200px;
+	--sidebar-width-closed: 40px;
+
+	color-scheme: light dark;
+}
+
+@layer base {
+	* {
+		@apply border-border-masked shadow-content-masked skeleton-scrollbar-content-masked box-border no-underline outline-hidden;
+	}
+
+	/* The universal reset hides outlines; put a visible one back for keyboard
+	   focus on every control (components can still refine it with a ring). */
+	:focus-visible {
+		outline: 2px solid var(--color-primary);
+		outline-offset: 2px;
+	}
+
+	html,
+	body,
+	#root {
+		@apply bg-surface text-content m-0 block max-h-dvh min-h-dvh max-w-dvw min-w-dvw cursor-default overflow-hidden p-0 outline-none;
+	}
+
+	/* The family's headings tighten up; small labels stay airy (see below). */
+	h1,
+	h2,
+	h3 {
+		letter-spacing: -0.02em;
+	}
+
+	body,
+	#root {
+		@apply flex flex-1 items-stretch justify-stretch;
+	}
+
+	body {
+		@apply flex-col;
+	}
+
+	input,
+	button,
+	button span,
+	a,
+	a span {
+		@apply truncate text-nowrap;
+	}
+
+	button,
+	img,
+	svg,
+	video,
+	picture {
+		@apply select-none;
+	}
+
+	input,
+	label:has(span.label) span.value {
+		@apply bg-surface-raised hover:bg-surface-raised-hover active:bg-surface-raised-active pointer-events-auto h-fit w-full rounded-md px-3 leading-9;
+	}
+
+	input {
+		@apply disabled:bg-surface-raised-hover read-only:bg-surface-raised-hover cursor-text read-only:cursor-default disabled:cursor-not-allowed;
+	}
+
+	label:has(input) {
+		@apply relative;
+	}
+
+	label:has(span.label, input) {
+		@apply pointer-events-none relative flex h-full w-full flex-col items-start justify-start gap-1;
+
+		span.label {
+			@apply h-fit w-full truncate px-2 text-xs leading-4 text-nowrap select-none;
+		}
+
+		span.value {
+			@apply cursor-pointer;
+
+			&[data-disabled='true'] {
+				@apply bg-surface-raised-hover cursor-not-allowed;
+			}
+
+			&[data-readonly='true'] {
+				@apply bg-surface-raised-hover cursor-default;
+			}
+		}
+	}
+
+	.lucide-icon {
+		@apply text-content inline-block aspect-square min-h-fit min-w-fit;
+	}
+
+	.container {
+		@apply relative flex h-full w-full flex-1 flex-col items-center justify-center;
+	}
+
+	.wrapper {
+		@apply relative flex h-full w-full flex-1 flex-col items-stretch justify-stretch;
+
+		* {
+			@apply flex-1;
+		}
+	}
+
+	#root {
+		@apply flex-row;
+	}
+
+	#content {
+		@apply flex flex-1 flex-col items-center-safe justify-center-safe overflow-hidden;
+	}
+}

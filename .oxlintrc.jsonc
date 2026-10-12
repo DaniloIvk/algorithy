@@ -1,0 +1,24 @@
+{
+	"$schema": "../node_modules/oxlint/configuration_schema.json",
+	"plugins": ["typescript", "eslint", "unicorn", "oxc", "promise", "jsx-a11y", "jsdoc"],
+	"categories": {
+		"correctness": "error",
+	},
+	"rules": {
+		"eslint/no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "^_",
+				"varsIgnorePattern": "^_",
+			},
+		],
+	},
+	"overrides": [
+		{
+			"files": ["**/*.tsx"],
+			"rules": {
+				"eslint/no-unassigned-vars": "off",
+			},
+		},
+	],
+}

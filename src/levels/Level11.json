@@ -1,0 +1,91 @@
+{
+	"id": "0859160a-82e5-4ecd-a582-c200cc4fce36",
+	"title": { "en": "Split Paths: Switch", "sr-Latn-RS": "Račvanje: Grananje" },
+	"slug": "11",
+	"width": 7,
+	"height": 7,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "ground", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "ground", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "ground", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 1,
+		"direction": "right"
+	},
+	"target": {
+		"x": 5,
+		"y": 5
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "while", "switch"],
+	"defaultActions": [
+		{
+			"action": "while",
+			"movable": false,
+			"modifiable": false,
+			"children": [
+				{
+					"action": "switch",
+					"movable": true,
+					"modifiable": false,
+					"branches": [
+						{
+							"condition": "path-left",
+							"children": []
+						},
+						{
+							"condition": "path-right",
+							"children": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"looks": {
+		"ground": {
+			"terrain": "stone"
+		},
+		"wall": {
+			"terrain": "stone"
+		}
+	},
+	"optimalActionCount": 6,
+	"optimalIterations": 27,
+	"optimalSolution": [
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "switch",
+					"branches": [
+						{
+							"condition": "path-left",
+							"children": [
+								{
+									"action": "turn-left"
+								}
+							]
+						},
+						{
+							"condition": "path-right",
+							"children": [
+								{
+									"action": "turn-right"
+								}
+							]
+						}
+					]
+				},
+				{
+					"action": "move-forward"
+				}
+			]
+		}
+	]
+}

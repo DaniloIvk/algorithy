@@ -1,0 +1,69 @@
+{
+	"id": "05bc5b48-0238-4dd8-a4e1-471142a7ea3b",
+	"title": { "en": "The Winding Path", "sr-Latn-RS": "Krivudava staza" },
+	"slug": "8",
+	"width": 9,
+	"height": 7,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "wall", "ground", "ground", "ground", "wall"],
+		["wall", "ground", "wall", "ground", "wall", "ground", "wall", "ground", "wall"],
+		["wall", "wall", "wall", "ground", "ground", "ground", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 3,
+		"direction": "up"
+	},
+	"target": {
+		"x": 7,
+		"y": 3
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "for"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "forest"
+		},
+		"wall": {
+			"terrain": "forest"
+		}
+	},
+	"optimalActionCount": 7,
+	"optimalIterations": 66,
+	"optimalSolution": [
+		{
+			"action": "for",
+			"count": 12,
+			"children": [
+				{
+					"action": "move-forward"
+				},
+				{
+					"action": "if",
+					"condition": "path-left",
+					"children": [
+						{
+							"action": "turn-left"
+						}
+					],
+					"elseChildren": [
+						{
+							"action": "if",
+							"condition": "path-right",
+							"children": [
+								{
+									"action": "turn-right"
+								}
+							],
+							"elseChildren": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

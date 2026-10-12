@@ -1,0 +1,41 @@
+{
+	"name": "algorithy",
+	"version": "1.0.0",
+	"description": "Learn algorithms through play!",
+	"keywords": [
+		"alrorithms",
+		"learning",
+		"level-builder"
+	],
+	"type": "module",
+	"scripts": {
+		"i18n": "bun run ./scripts/i18n.ts",
+		"dev": "bun run i18n && bun run ./src/dev.ts",
+		"build": "bun run i18n && rm -rf dist && bun run build:js && bun run build:css && bun run build:static",
+		"build:js": "bun build ./src/client.tsx --outdir ./dist/assets --target browser --minify",
+		"build:css": "tailwindcss -i ./src/style.css -o ./dist/assets/index.css --minify",
+		"build:static": "bun run ./scripts/assemble-dist.ts",
+		"start": "NODE_ENV=production bun ./src/server.ts",
+		"serve": "bun run build && bun run start",
+		"format": "oxfmt --write --ignore-path=.gitignore",
+		"lint": "oxlint --type-aware --type-check --ignore-path=.gitignore",
+		"test": "bun test",
+		"validate": "clear && bun format && bun lint && bun test"
+	},
+	"dependencies": {
+		"@tailwindcss/cli": "^4.3.3",
+		"hono": "^4.13.12",
+		"lucide": "^1.50.0",
+		"tailwindcss": "^4.3.3",
+		"valibot": "^1.5.0"
+	},
+	"devDependencies": {
+		"@happy-dom/global-registrator": "^20.14.6",
+		"@inlang/paraglide-js": "^2.26.0",
+		"@types/bun": "^1.4.2",
+		"oxfmt": "^0.72.0",
+		"oxlint": "^1.87.0",
+		"typescript": "^7.0.2"
+	},
+	"packageManager": "bun@1.4.3"
+}

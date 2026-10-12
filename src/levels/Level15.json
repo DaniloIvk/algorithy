@@ -1,0 +1,59 @@
+{
+	"id": "dfdf2990-f6a3-41e1-a065-8e05d6df380c",
+	"title": { "en": "Slippery Slope", "sr-Latn-RS": "Klizav teren" },
+	"slug": "15",
+	"width": 7,
+	"height": 7,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "wall", "ground", "ground", "wall"],
+		["wall", "ground", "ice", "ice", "ice", "ground", "wall"],
+		["wall", "ground", "ice", "ice", "ice", "ground", "wall"],
+		["wall", "ground", "ice", "ice", "ice", "ground", "wall"],
+		["wall", "ground", "ground", "wall", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 1,
+		"direction": "right"
+	},
+	"target": {
+		"x": 5,
+		"y": 5
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "for", "while", "switch"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "frost"
+		},
+		"wall": {
+			"terrain": "frost"
+		},
+		"ice": {
+			"terrain": "ice"
+		}
+	},
+	"optimalActionCount": 6,
+	"optimalIterations": 18,
+	"optimalSolution": [
+		{
+			"action": "turn-right"
+		},
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "turn-left"
+				},
+				{
+					"action": "move-forward"
+				}
+			]
+		}
+	]
+}

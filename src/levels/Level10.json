@@ -1,0 +1,73 @@
+{
+	"id": "fb67068c-a0c1-4493-b3c7-7b90a37ade0c",
+	"title": {
+		"en": "Mind the Gap: Holes (The Purple Path)",
+		"sr-Latn-RS": "Pazi na rupu: Rupe (Ljubičasta staza)"
+	},
+	"slug": "10",
+	"width": 9,
+	"height": 9,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "ground", "ground", "ground", "wall", "ground", "ground", "ground", "wall"],
+		["wall", "ground", "wall", "ground", "wall", "ground", "wall", "ground", "wall"],
+		["wall", "ground", "wall", "hole", "ground", "ground", "wall", "ground", "wall"],
+		["wall", "ground", "wall", "wall", "wall", "ground", "wall", "ground", "wall"],
+		["wall", "ground", "ground", "ground", "ground", "ground", "wall", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "ground", "wall"],
+		["wall", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 1,
+		"direction": "right"
+	},
+	"target": {
+		"x": 1,
+		"y": 7
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "while"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "boss"
+		},
+		"wall": {
+			"terrain": "boss"
+		}
+	},
+	"optimalActionCount": 7,
+	"optimalIterations": 107,
+	"optimalSolution": [
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "if",
+					"condition": "path-right",
+					"children": [
+						{
+							"action": "turn-right"
+						}
+					],
+					"elseChildren": [
+						{
+							"action": "if",
+							"condition": "path-ahead",
+							"children": [],
+							"elseChildren": [
+								{
+									"action": "turn-left"
+								}
+							]
+						}
+					]
+				},
+				{
+					"action": "move-forward"
+				}
+			]
+		}
+	]
+}

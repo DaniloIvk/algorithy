@@ -1,0 +1,1377 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold?styles=20876,20877,20878,20879,20880,20881');
+@import 'tailwindcss';
+@import '../styles/theme.css';
+@import './terrain.css';
+
+@source "../src/**/*.{ts,tsx}";
+@source "../src/**/*.json";
+
+@theme static {
+	--color-primary: light-dark(oklch(0.585 0.233 277), oklch(0.673 0.182 277));
+	/* The family's second/third accents: violet joins the primary gradient,
+	   cyan is the cool counterpoint the aurora background fades through. */
+	--color-secondary: light-dark(oklch(0.55 0.25 293), oklch(0.702 0.183 294));
+	--color-accent: light-dark(oklch(0.688 0.148 233), oklch(0.75 0.13 230));
+	/* The signature VTS button: a 92deg indigo-to-violet sweep. */
+	--app-primary-gradient: linear-gradient(92deg, var(--color-primary), var(--color-secondary));
+	/* The landing-page aurora, dialled down for a working screen: two corner
+	   glows (indigo top-right, violet left) and a cyan breath at the bottom. */
+	--app-background:
+		radial-gradient(
+			90rem 60rem at 110% -10%,
+			light-dark(
+				color-mix(in oklch, var(--color-primary) 15%, transparent),
+				color-mix(in oklch, var(--color-primary) 26%, transparent)
+			),
+			transparent 60%
+		),
+		radial-gradient(
+			70rem 50rem at -20% 30%,
+			light-dark(
+				color-mix(in oklch, var(--color-secondary) 13%, transparent),
+				color-mix(in oklch, var(--color-secondary) 22%, transparent)
+			),
+			transparent 60%
+		),
+		radial-gradient(
+			52rem 40rem at 50% 115%,
+			light-dark(
+				color-mix(in oklch, var(--color-accent) 9%, transparent),
+				color-mix(in oklch, var(--color-accent) 16%, transparent)
+			),
+			transparent 60%
+		);
+	--color-block-sky: light-dark(oklch(0.82 0.13 230), oklch(0.52 0.11 230));
+	--color-block-sky-hover: color-mix(in oklch, var(--color-block-sky) 80%, black);
+	--color-block-sky-active: color-mix(in oklch, var(--color-block-sky) 64%, black);
+	--color-block-sky-border: color-mix(in oklch, var(--color-block-sky) 78%, black);
+	--color-block-emerald: light-dark(oklch(0.81 0.14 160), oklch(0.5 0.12 160));
+	--color-block-emerald-hover: color-mix(in oklch, var(--color-block-emerald) 80%, black);
+	--color-block-emerald-active: color-mix(in oklch, var(--color-block-emerald) 64%, black);
+	--color-block-emerald-border: color-mix(in oklch, var(--color-block-emerald) 78%, black);
+	--color-block-yellow: light-dark(oklch(0.85 0.15 90), oklch(0.55 0.13 90));
+	--color-block-yellow-hover: color-mix(in oklch, var(--color-block-yellow) 80%, black);
+	--color-block-yellow-active: color-mix(in oklch, var(--color-block-yellow) 64%, black);
+	--color-block-yellow-border: color-mix(in oklch, var(--color-block-yellow) 78%, black);
+	--color-block-green: light-dark(oklch(0.82 0.14 145), oklch(0.52 0.12 145));
+	--color-block-green-hover: color-mix(in oklch, var(--color-block-green) 80%, black);
+	--color-block-green-active: color-mix(in oklch, var(--color-block-green) 64%, black);
+	--color-block-green-border: color-mix(in oklch, var(--color-block-green) 78%, black);
+	--color-block-yellow-washed: color-mix(
+		in oklch,
+		var(--color-block-yellow) 68%,
+		light-dark(white, dimgray)
+	);
+	--color-block-yellow-washed-hover: color-mix(in oklch, var(--color-block-yellow) 78%, white);
+	--color-block-yellow-washed-hover-border: color-mix(
+		in oklch,
+		var(--color-block-yellow-washed-hover) 78%,
+		black
+	);
+	--color-block-yellow-washed-border: color-mix(
+		in oklch,
+		var(--color-block-yellow-washed) 78%,
+		black
+	);
+	--color-block-red: light-dark(oklch(0.78 0.17 25), oklch(0.48 0.15 25));
+	--color-block-red-hover: color-mix(in oklch, var(--color-block-red) 80%, black);
+	--color-block-red-active: color-mix(in oklch, var(--color-block-red) 64%, black);
+	--color-block-red-border: color-mix(in oklch, var(--color-block-red) 78%, black);
+	--color-block-red-washed: color-mix(
+		in oklch,
+		var(--color-block-red) 68%,
+		light-dark(white, dimgray)
+	);
+	--color-block-red-washed-hover: color-mix(in oklch, var(--color-block-red) 78%, white);
+	--color-block-red-washed-hover-border: color-mix(
+		in oklch,
+		var(--color-block-red-washed-hover) 78%,
+		black
+	);
+	--color-block-red-washed-border: color-mix(in oklch, var(--color-block-red-washed) 78%, black);
+	--color-stop: light-dark(oklch(0.55 0.2 25), oklch(0.42 0.18 25));
+	--color-stop-hover: color-mix(in oklch, var(--color-stop) 92%, white);
+	--color-stop-active: color-mix(in oklch, var(--color-stop) 88%, black);
+	--color-stop-border: color-mix(in oklch, var(--color-stop) 78%, black);
+	/* A faint, light danger wash: the red is lifted with white first, then kept
+	   mostly transparent, so it lightens dark surfaces instead of muddying. */
+	--color-stop-soft: color-mix(
+		in oklch,
+		color-mix(in oklch, var(--color-stop) 55%, white) 20%,
+		transparent
+	);
+	--color-stop-soft-hover: color-mix(
+		in oklch,
+		color-mix(in oklch, var(--color-stop) 55%, white) 28%,
+		transparent
+	);
+	--color-stop-soft-active: color-mix(
+		in oklch,
+		color-mix(in oklch, var(--color-stop) 55%, white) 36%,
+		transparent
+	);
+	--color-block-green-washed: color-mix(
+		in oklch,
+		var(--color-block-green) 68%,
+		light-dark(white, dimgray)
+	);
+	--color-block-green-washed-hover: color-mix(in oklch, var(--color-block-green) 78%, white);
+	--color-block-green-washed-hover-border: color-mix(
+		in oklch,
+		var(--color-block-green-washed-hover) 78%,
+		black
+	);
+	--color-block-green-washed-border: color-mix(
+		in oklch,
+		var(--color-block-green-washed) 78%,
+		black
+	);
+	--color-block-orange: light-dark(oklch(0.83 0.14 55), oklch(0.58 0.13 50));
+	--color-block-orange-hover: color-mix(in oklch, var(--color-block-orange) 80%, black);
+	--color-block-orange-active: color-mix(in oklch, var(--color-block-orange) 64%, black);
+	--color-block-orange-border: color-mix(in oklch, var(--color-block-orange) 78%, black);
+	--color-block-orange-washed: color-mix(
+		in oklch,
+		var(--color-block-orange) 68%,
+		light-dark(white, dimgray)
+	);
+	--color-block-orange-washed-hover: color-mix(in oklch, var(--color-block-orange) 78%, white);
+	--color-block-orange-washed-hover-border: color-mix(
+		in oklch,
+		var(--color-block-orange-washed-hover) 78%,
+		black
+	);
+	--color-block-orange-washed-border: color-mix(
+		in oklch,
+		var(--color-block-orange-washed) 78%,
+		black
+	);
+	--color-block-gray: light-dark(oklch(0.8 0 0), oklch(0.55 0 0));
+	--color-block-gray-hover: color-mix(in oklch, var(--color-block-gray) 80%, black);
+	--color-block-gray-active: color-mix(in oklch, var(--color-block-gray) 64%, black);
+	--color-block-gray-border: color-mix(in oklch, var(--color-block-gray) 78%, black);
+	--color-block-gray-washed: color-mix(
+		in oklch,
+		var(--color-block-gray) 68%,
+		light-dark(white, dimgray)
+	);
+	--color-block-gray-washed-hover: color-mix(in oklch, var(--color-block-gray) 78%, white);
+	--color-block-gray-washed-hover-border: color-mix(
+		in oklch,
+		var(--color-block-gray-washed-hover) 78%,
+		black
+	);
+	--color-block-gray-washed-border: color-mix(in oklch, var(--color-block-gray-washed) 78%, black);
+	--color-ice: light-dark(oklch(0.93 0.09 210), oklch(0.79 0.09 210));
+	--color-ground-frost: light-dark(oklch(0.97 0.02 220), oklch(0.89 0.04 220));
+	--color-wall-frost: light-dark(oklch(0.8 0.06 230), oklch(0.6 0.08 230));
+	--color-ground-blue-ice: light-dark(oklch(0.97 0.06 220), oklch(0.89 0.08 220));
+	--color-wall-blue-ice: light-dark(oklch(0.6 0.07 230), oklch(0.4 0.09 230));
+	--color-ice-hover: color-mix(in oklch, var(--color-ice) 92%, white);
+	--color-ice-active: color-mix(in oklch, var(--color-ice) 88%, black);
+	--color-ice-border: color-mix(in oklch, var(--color-ice) 78%, black);
+	--color-ground: light-dark(oklch(0.92 0 0), oklch(0.46 0 0));
+	--color-wall: light-dark(oklch(0.2 0 0), oklch(0.97 0 0));
+	--color-wall-orange: light-dark(oklch(0.6 0.15 45), oklch(0.6 0.12 45));
+	--color-wall-amber: light-dark(oklch(0.62 0.13 70), oklch(0.62 0.11 70));
+	--color-ground-amber: light-dark(oklch(0.94 0.03 75), oklch(0.5 0.04 70));
+	--color-ground-stone: oklch(0.923 0.003 48.717);
+	--color-wall-stone: oklch(0.553 0.013 58.071);
+	--color-target: light-dark(oklch(0.88 0.19 95), oklch(0.82 0.17 95));
+	--color-player: var(--color-primary);
+	--color-overlay: light-dark(oklch(0 0 0 / 0.4), oklch(0 0 0 / 0.4));
+	--color-ground-terrain: light-dark(oklch(0.61 0.11 93), oklch(0.43 0.09 93));
+	--color-wall-terrain: light-dark(oklch(0.53 0.13 136), oklch(0.47 0.11 143));
+	--color-wall-boss: light-dark(oklch(0.55 0.18 320), oklch(0.52 0.15 320));
+	--color-ground-boss: light-dark(oklch(0.88 0.04 320), oklch(0.32 0.06 320));
+	--color-wall-legend: light-dark(oklch(0.54 0.14 250), oklch(0.51 0.12 250));
+	--color-ground-legend: light-dark(oklch(0.88 0.03 250), oklch(0.32 0.05 250));
+	--color-lava: light-dark(oklch(0.72 0.2 50), oklch(0.76 0.19 50));
+	--color-hole: light-dark(oklch(0.07 0.005 260), oklch(0.03 0.005 260));
+	--color-success-strong: light-dark(oklch(0.8 0.16 120), oklch(0.72 0.16 120));
+	--color-syntax-keyword: light-dark(oklch(0.5 0.17 300), oklch(0.78 0.12 300));
+	--color-syntax-call: light-dark(oklch(0.5 0.2 277), oklch(0.75 0.14 277));
+	--color-syntax-number: light-dark(oklch(0.5 0.13 40), oklch(0.75 0.12 45));
+	--color-logo-c: #00599c;
+	--color-logo-python: #3776ab;
+	--color-logo-python-accent: #ffd43b;
+	--color-logo-javascript: #f7df1e;
+}
+
+[data-player-skin='blue'] {
+	--color-player: light-dark(oklch(0.62 0.19 250), oklch(0.6 0.14 250));
+}
+
+[data-player-skin='pink'] {
+	--color-player: light-dark(oklch(0.68 0.2 350), oklch(0.62 0.16 350));
+}
+
+@keyframes spin-reverse {
+	from {
+		transform: rotate(360deg);
+	}
+	to {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/*
+ * Skin chooser rings: three slowly rotating halos behind each skin option.
+ * They are built from the app's tokens (the player colour plus block accents),
+ * so they stay consistent with the palette in both light and dark mode.
+ */
+.skin-ring {
+	position: absolute;
+	border-radius: 9999px;
+}
+
+.skin-ring-a {
+	inset: -50%;
+	animation: spin 7s linear infinite;
+}
+
+.skin-ring-b {
+	inset: -50%;
+	animation: spin-reverse 6s linear infinite;
+}
+
+.skin-ring-c {
+	inset: -35%;
+	animation: spin 10s linear infinite;
+}
+
+[data-player-skin='blue'] .skin-ring-a {
+	background: conic-gradient(
+		from 0deg at 50% 50%,
+		color-mix(in oklch, var(--color-player) 18%, transparent) 0deg,
+		color-mix(in oklch, var(--color-block-sky) 16%, transparent) 60deg,
+		color-mix(in oklch, var(--color-block-emerald) 18%, transparent) 120deg,
+		color-mix(in oklch, var(--color-block-red) 16%, transparent) 180deg,
+		color-mix(in oklch, var(--color-player) 18%, transparent) 240deg,
+		color-mix(in oklch, var(--color-block-sky) 14%, transparent) 300deg
+	);
+}
+
+[data-player-skin='blue'] .skin-ring-b {
+	background: conic-gradient(
+		from 120deg at 50% 50%,
+		color-mix(in oklch, var(--color-player) 16%, transparent) 0deg,
+		color-mix(in oklch, var(--color-block-emerald) 14%, transparent) 90deg,
+		color-mix(in oklch, var(--color-block-red) 16%, transparent) 180deg,
+		color-mix(in oklch, var(--color-player) 16%, transparent) 240deg,
+		color-mix(in oklch, var(--color-block-emerald) 12%, transparent) 300deg
+	);
+}
+
+[data-player-skin='blue'] .skin-ring-c {
+	background: conic-gradient(
+		from 240deg at 50% 50%,
+		color-mix(in oklch, var(--color-block-red) 14%, transparent) 0deg,
+		color-mix(in oklch, var(--color-player) 14%, transparent) 90deg,
+		color-mix(in oklch, var(--color-block-emerald) 14%, transparent) 180deg,
+		color-mix(in oklch, var(--color-block-red) 14%, transparent) 240deg,
+		color-mix(in oklch, var(--color-player) 12%, transparent) 300deg
+	);
+}
+
+[data-player-skin='pink'] .skin-ring-a {
+	background: conic-gradient(
+		from 0deg at 50% 50%,
+		color-mix(in oklch, var(--color-player) 18%, transparent) 0deg,
+		color-mix(in oklch, var(--color-block-red) 16%, transparent) 60deg,
+		color-mix(in oklch, var(--color-block-yellow) 18%, transparent) 120deg,
+		color-mix(in oklch, var(--color-primary) 16%, transparent) 180deg,
+		color-mix(in oklch, var(--color-player) 18%, transparent) 240deg,
+		color-mix(in oklch, var(--color-block-red) 14%, transparent) 300deg
+	);
+}
+
+[data-player-skin='pink'] .skin-ring-b {
+	background: conic-gradient(
+		from 120deg at 50% 50%,
+		color-mix(in oklch, var(--color-player) 16%, transparent) 0deg,
+		color-mix(in oklch, var(--color-primary) 14%, transparent) 90deg,
+		color-mix(in oklch, var(--color-block-yellow) 16%, transparent) 180deg,
+		color-mix(in oklch, var(--color-player) 16%, transparent) 240deg,
+		color-mix(in oklch, var(--color-primary) 12%, transparent) 300deg
+	);
+}
+
+[data-player-skin='pink'] .skin-ring-c {
+	background: conic-gradient(
+		from 240deg at 50% 50%,
+		color-mix(in oklch, var(--color-block-red) 14%, transparent) 0deg,
+		color-mix(in oklch, var(--color-player) 14%, transparent) 90deg,
+		color-mix(in oklch, var(--color-primary) 14%, transparent) 180deg,
+		color-mix(in oklch, var(--color-block-red) 14%, transparent) 240deg,
+		color-mix(in oklch, var(--color-player) 12%, transparent) 300deg
+	);
+}
+
+@utility scrollbar-none {
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+/* The family's primary action: the indigo-to-violet sweep with a soft
+   coloured glow, used for Run and the builder's Share. */
+@utility bg-primary-gradient {
+	background-image: var(--app-primary-gradient);
+	box-shadow: 0 8px 20px -10px color-mix(in oklch, var(--color-primary) 45%, transparent);
+}
+
+@utility border-hairline {
+	border-width: var(--border-hairline);
+}
+
+@utility border-area {
+	border-width: var(--border-area);
+}
+
+@utility border-block {
+	border-width: var(--border-block);
+}
+
+html {
+	--app-chrome-height: clamp(3.5rem, 6.5dvh, 5rem);
+	/* The header's own height: one fixed row on a wide screen, taller on a
+	   phone where it wraps onto two rows. The body's top padding follows it. */
+	--app-header-height: var(--app-chrome-height);
+	--palette-height: clamp(10.5rem, 24dvh, 14rem);
+	/* Room the playground must leave on top of the palette: page padding and
+	   the column gaps. Pages with more chrome above the board (the builder's
+	   title row, toolbar and brushes) raise this; see `.playground-box`. */
+	--playground-reserved: 5rem;
+
+	/* One height for every block so the top notch never overlaps content. */
+	--block-height: clamp(2.5rem, 2.1rem + 0.8vw, 3rem);
+
+	/* Border widths track the root (`html` font-size) so the block shell, the
+	   block areas and the controls keep the same visual weight at any size.
+	   Block borders never drop below 2px. */
+	--border-hairline: max(1px, 0.0625rem);
+	--border-area: max(1.5px, 0.125rem);
+	--border-block: max(2px, 0.1875rem);
+
+	@apply relative max-h-dvh max-w-dvw min-w-0 scrollbar-none overflow-y-auto;
+
+	body {
+		@apply h-full max-h-none w-full max-w-full min-w-full;
+
+		padding-top: var(--app-header-height);
+
+		background-color: var(--color-surface);
+		/* One entry per aurora layer for the SVG-screenshot tooling. */
+		background-image: var(--app-background);
+		background-position:
+			0 0,
+			0 0,
+			0 0;
+		background-attachment: fixed;
+
+		/* The page is sized to fit the viewport; if a small screen (or a large
+		   zoom) cannot, it scrolls instead of clipping the bottom controls. */
+		overflow-y: auto;
+
+		header {
+			@apply fixed inset-x-0 top-0 z-99 flex items-center-safe gap-2 backdrop-blur-[14px];
+
+			height: var(--app-header-height);
+			padding-inline: clamp(0.5rem, 2vw, 1rem);
+
+			background: color-mix(in oklch, var(--color-surface) 68%, transparent);
+
+			h1 {
+				@apply leading-6;
+
+				/* Sits between the two control groups and shrinks before any of
+				   them: the logo scales down (max-width/height) instead of pushing
+				   the controls off screen. */
+				order: 2;
+				display: flex;
+				flex: 1 1 auto;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+				gap: 0.35rem 0.75rem;
+				min-width: 0;
+				padding-inline: clamp(0.5rem, 1.5vw, 1.25rem);
+
+				font-size: clamp(1.125rem, 1.8dvh, 1.5rem);
+
+				img {
+					display: block;
+					width: auto;
+					height: auto;
+					max-width: 100%;
+					max-height: clamp(1.5rem, 3.2dvh, 2.25rem);
+					object-fit: contain;
+				}
+
+				/* The builder mark is two wordmarks on one baseline. Both files are
+				   seven rows tall, so a shared height keeps them at one pixel size
+				   (neither can scale against the other); the row gets extra room
+				   top and bottom, a word space between the words, and can wrap. */
+				&:has(img[src*='logo-builder']) {
+					padding-block: 0.5rem;
+					column-gap: 1.5rem;
+
+					img {
+						height: clamp(1.25rem, 3dvh, 2rem);
+						width: auto;
+						max-height: none;
+						max-width: none;
+						flex: 0 0 auto;
+					}
+				}
+			}
+
+			/* The slots are appended by components, so order them visually here:
+			   the builder action on the left, the wordmark in the middle, then the
+			   colour, language and sound controls on the right. */
+			> #header-build-slot {
+				order: 1;
+				flex-shrink: 0;
+			}
+
+			> #header-skin-slot {
+				order: 3;
+				flex-shrink: 0;
+			}
+
+			> #header-language-slot {
+				order: 4;
+				flex-shrink: 0;
+			}
+
+			> #header-sound-slot {
+				order: 5;
+				flex-shrink: 0;
+			}
+		}
+
+		main#root {
+			@apply xs:px-3 flex h-full max-h-none w-full max-w-full min-w-full flex-1 flex-col items-stretch justify-stretch px-2 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 lg:px-10 lg:py-5 xl:px-16 xl:py-6;
+
+			min-height: calc(100dvh - 2 * var(--app-chrome-height));
+
+			background-color: transparent;
+		}
+
+		footer {
+			/* Three columns: an empty left slot keeps the copy centred while the
+			   documentation link sits on the right. Too narrow for that, it
+			   becomes a centred, wrapping flex row so nothing collides. */
+			@apply relative grid items-center-safe px-4;
+
+			grid-template-columns: 1fr auto 1fr;
+
+			height: var(--app-chrome-height);
+
+			flex-shrink: 0;
+
+			@media (max-width: 40rem) {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+				gap: 0.25rem 1rem;
+
+				height: auto;
+				min-height: var(--app-chrome-height);
+				padding-block: 0.5rem;
+
+				text-align: center;
+
+				& > [aria-hidden='true'] {
+					display: none;
+				}
+			}
+
+			#footer-copy {
+				justify-self: center;
+			}
+
+			#footer-docs {
+				@apply text-content-masked hover:text-content;
+
+				justify-self: end;
+
+				transition: color 120ms;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+[data-drag-item] {
+	touch-action: none;
+}
+
+body[data-dragging='true'] {
+	cursor: not-allowed;
+}
+
+body[data-dragging='true'] [data-drop-zone],
+body[data-dragging='true'] [data-drop-delete] {
+	cursor: copy;
+}
+
+body[data-dragging='true'] [data-drop-zone] *,
+body[data-dragging='true'] [data-drop-delete] * {
+	cursor: copy;
+}
+
+[data-drag-ghost='true'] {
+	pointer-events: none;
+	user-select: none;
+}
+
+.palette-blocks {
+	display: contents;
+}
+
+.palette-delete-hint {
+	display: none;
+}
+
+body[data-deletable-drag='true'] .palette-blocks {
+	display: none;
+}
+
+body[data-deletable-drag='true'] .palette-delete-hint {
+	display: flex;
+}
+
+body[data-dragging='true'] .palette {
+	cursor: cell;
+}
+
+.algorithm-zone {
+	transition:
+		border-color 160ms ease,
+		background-color 160ms ease,
+		box-shadow 160ms ease;
+}
+
+body[data-palette-drag='true'] .algorithm-zone {
+	border-width: var(--border-block);
+	border-color: color-mix(in oklch, var(--color-primary) 45%, var(--color-border));
+	background-color: color-mix(in oklch, var(--color-primary) 5%, transparent);
+	box-shadow: 0 0 14px color-mix(in oklch, var(--color-primary) 22%, transparent);
+}
+
+body[data-deletable-drag='true'] .palette {
+	border-width: var(--border-block);
+	border-color: var(--color-error);
+	background-color: color-mix(in oklch, var(--color-error) 12%, transparent);
+	box-shadow: none;
+}
+
+.palette[data-drag-over='true'] {
+	border-width: var(--border-block);
+	border-color: var(--color-error);
+	background-color: color-mix(in oklch, var(--color-error) 20%, transparent);
+	box-shadow: none;
+}
+
+/* Opacity/transform only: the toast box keeps its own shadow. */
+.toast-animated {
+	animation: toast-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.toast-animated[data-exiting='true'] {
+	animation: toast-out 200ms cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+@keyframes toast-in {
+	from {
+		opacity: 0;
+		transform: translateX(1rem) scale(0.98);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0) scale(1);
+	}
+}
+
+@keyframes toast-out {
+	from {
+		opacity: 1;
+		transform: translateX(0) scale(1);
+	}
+
+	to {
+		opacity: 0;
+		transform: translateX(1rem) scale(0.98);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.toast-animated {
+		animation: none;
+	}
+
+	.toast-animated[data-exiting='true'] {
+		display: none;
+	}
+}
+
+.clipart {
+	clip-path: polygon(
+		0.2px 0,
+		calc(50% - 0.42625rem) 0,
+		calc(50% - 0.399rem) 0.01469rem,
+		calc(50% - 0.384rem) 0.03063rem,
+		calc(50% - 0.369rem) 0.04594rem,
+		calc(50% - 0.354rem) 0.06125rem,
+		calc(50% - 0.339rem) 0.07644rem,
+		calc(50% - 0.324rem) 0.09188rem,
+		calc(50% - 0.309rem) 0.10719rem,
+		calc(50% - 0.294rem) 0.1225rem,
+		calc(50% - 0.279rem) 0.13781rem,
+		calc(50% - 0.264rem) 0.15313rem,
+		calc(50% - 0.249rem) 0.16844rem,
+		calc(50% - 0.234rem) 0.18375rem,
+		calc(50% - 0.219rem) 0.19894rem,
+		calc(50% - 0.204rem) 0.21438rem,
+		calc(50% - 0.189rem) 0.22969rem,
+		calc(50% - 0.174rem) 0.245rem,
+		calc(50% - 0.159rem) 0.25969rem,
+		calc(50% - 0.144rem) 0.275rem,
+		calc(50% - 0.129rem) 0.2888rem,
+		calc(50% - 0.114rem) 0.2984rem,
+		calc(50% - 0.099rem) 0.3024rem,
+		calc(50% - 0.084rem) 0.3064rem,
+		calc(50% - 0.069rem) 0.3104rem,
+		calc(50% - 0.054rem) 0.3144rem,
+		calc(50% - 0.039rem) 0.3174rem,
+		calc(50% - 0.024rem) 0.3194rem,
+		calc(50% - 0.012rem) 0.3204rem,
+		50% 0.3204rem,
+		calc(50% + 0.012rem) 0.3204rem,
+		calc(50% + 0.024rem) 0.3194rem,
+		calc(50% + 0.039rem) 0.3174rem,
+		calc(50% + 0.054rem) 0.3144rem,
+		calc(50% + 0.069rem) 0.3104rem,
+		calc(50% + 0.084rem) 0.3064rem,
+		calc(50% + 0.099rem) 0.3024rem,
+		calc(50% + 0.114rem) 0.2984rem,
+		calc(50% + 0.129rem) 0.2888rem,
+		calc(50% + 0.144rem) 0.275rem,
+		calc(50% + 0.159rem) 0.25969rem,
+		calc(50% + 0.174rem) 0.245rem,
+		calc(50% + 0.189rem) 0.22969rem,
+		calc(50% + 0.204rem) 0.21438rem,
+		calc(50% + 0.219rem) 0.19894rem,
+		calc(50% + 0.234rem) 0.18375rem,
+		calc(50% + 0.249rem) 0.16844rem,
+		calc(50% + 0.264rem) 0.15313rem,
+		calc(50% + 0.279rem) 0.13781rem,
+		calc(50% + 0.294rem) 0.1225rem,
+		calc(50% + 0.309rem) 0.10719rem,
+		calc(50% + 0.324rem) 0.09188rem,
+		calc(50% + 0.339rem) 0.07644rem,
+		calc(50% + 0.354rem) 0.06125rem,
+		calc(50% + 0.369rem) 0.04594rem,
+		calc(50% + 0.384rem) 0.03063rem,
+		calc(50% + 0.399rem) 0.01469rem,
+		calc(50% + 0.42625rem) 0,
+		calc(100% - 0.2px) 0,
+		calc(100% - 0.2px) 100%,
+		0.2px 100%
+	);
+}
+
+/* A border-coloured shape the size of the cut-out grown by the border width.
+   It lives inside `.clipart`, so the clip-art's clip-path cuts the notch out of
+   it and we are left with a border of the same width as the block outline,
+   following the cut-out's own shape. */
+.block-notch-border {
+	clip-path: polygon(
+		calc(50% - 0.82138rem) 0,
+		calc(50% - 0.51472rem) 0.16532rem,
+		calc(50% - 0.51925rem) 0.1605rem,
+		calc(50% - 0.51793rem) 0.16185rem,
+		calc(50% - 0.48767rem) 0.19273rem,
+		calc(50% - 0.47295rem) 0.20764rem,
+		calc(50% - 0.45821rem) 0.22282rem,
+		calc(50% - 0.45793rem) 0.2231rem,
+		calc(50% - 0.44293rem) 0.23841rem,
+		calc(50% - 0.41295rem) 0.26901rem,
+		calc(50% - 0.39795rem) 0.28433rem,
+		calc(50% - 0.39793rem) 0.28435rem,
+		calc(50% - 0.36767rem) 0.31523rem,
+		calc(50% - 0.35295rem) 0.33014rem,
+		calc(50% - 0.33821rem) 0.34532rem,
+		calc(50% - 0.33793rem) 0.3456rem,
+		calc(50% - 0.30658rem) 0.3776rem,
+		calc(50% - 0.29158rem) 0.39229rem,
+		calc(50% - 0.27453rem) 0.40969rem,
+		calc(50% - 0.24388rem) 0.43789rem,
+		calc(50% - 0.1905rem) 0.47205rem,
+		calc(50% - 0.16231rem) 0.47957rem,
+		calc(50% - 0.14731rem) 0.48357rem,
+		calc(50% - 0.13231rem) 0.48757rem,
+		calc(50% - 0.09658rem) 0.4971rem,
+		calc(50% - 0.06981rem) 0.50245rem,
+		calc(50% - 0.04419rem) 0.50587rem,
+		calc(50% - 0.0198rem) 0.5079rem,
+		calc(50% - 0.012rem) 0.5079rem,
+		calc(50% + 0.0198rem) 0.5079rem,
+		calc(50% + 0.04419rem) 0.50587rem,
+		calc(50% + 0.06981rem) 0.50245rem,
+		calc(50% + 0.09658rem) 0.4971rem,
+		calc(50% + 0.10231rem) 0.49557rem,
+		calc(50% + 0.11731rem) 0.49157rem,
+		calc(50% + 0.13231rem) 0.48757rem,
+		calc(50% + 0.1905rem) 0.47205rem,
+		calc(50% + 0.24388rem) 0.43789rem,
+		calc(50% + 0.27453rem) 0.40969rem,
+		calc(50% + 0.29158rem) 0.39229rem,
+		calc(50% + 0.30658rem) 0.3776rem,
+		calc(50% + 0.30793rem) 0.37622rem,
+		calc(50% + 0.33821rem) 0.34532rem,
+		calc(50% + 0.35295rem) 0.33014rem,
+		calc(50% + 0.36767rem) 0.31523rem,
+		calc(50% + 0.36793rem) 0.31497rem,
+		calc(50% + 0.39795rem) 0.28433rem,
+		calc(50% + 0.41295rem) 0.26901rem,
+		calc(50% + 0.41293rem) 0.26903rem,
+		calc(50% + 0.42793rem) 0.25372rem,
+		calc(50% + 0.45821rem) 0.22282rem,
+		calc(50% + 0.47295rem) 0.20764rem,
+		calc(50% + 0.48767rem) 0.19273rem,
+		calc(50% + 0.48793rem) 0.19247rem,
+		calc(50% + 0.51925rem) 0.1605rem,
+		calc(50% + 0.51472rem) 0.16532rem,
+		calc(50% + 0.82138rem) 0
+	);
+}
+
+/* Playground grid sizing.
+   The frame is an inline-size container, so a tile can be measured against the
+   space the frame really gets. Every cell then takes an explicit width and
+   height from the two variables, which keeps data cells square whatever the map
+   shape (the old table `aspect-ratio` ignored the label row/column, so 5x7 and
+   the like came out slightly tall). The labels get a small track that grows
+   with the frame, is capped at half a tile, and never drops below one that
+   still fits a digit. */
+.playground-box {
+	/* The largest square the board may take: the viewport minus the header and
+	   footer, the palette, the page padding and gaps. Computed here (not on
+	   `html`) so a page can raise `--playground-reserved` and this follows. */
+	--playground-limit: min(
+		84rem,
+		max(
+			8rem,
+			calc(
+				100dvh - 2 * var(--app-chrome-height) - var(--palette-height) - var(--playground-reserved)
+			)
+		)
+	);
+
+	min-width: 8rem;
+	min-height: 8rem;
+	max-width: var(--playground-limit);
+	max-height: var(--playground-limit);
+	/* Leave the fixed header clear when a run scrolls the board into view. */
+	scroll-margin-top: var(--app-chrome-height);
+}
+
+.playground-frame {
+	container-type: inline-size;
+}
+
+.playground-grid {
+	--playground-label-max: 2.25rem;
+	/* Tile size with the label track at its widest: a lower bound for the tile,
+	   used only to cap the label at half a tile. */
+	--playground-tile-bound: min(
+		calc((100cqw - var(--playground-label-max)) / var(--playground-columns)),
+		calc((var(--playground-limit) - var(--playground-label-max)) / var(--playground-rows))
+	);
+	--playground-label-size: clamp(
+		1.5rem,
+		calc(var(--playground-limit) * 0.06),
+		min(var(--playground-label-max), calc(var(--playground-tile-bound) * 0.5))
+	);
+	--playground-tile-size: min(
+		calc((100cqw - var(--playground-label-size)) / var(--playground-columns)),
+		calc((var(--playground-limit) - var(--playground-label-size)) / var(--playground-rows))
+	);
+
+	width: calc(
+		var(--playground-label-size) + var(--playground-columns) * var(--playground-tile-size)
+	);
+	height: calc(var(--playground-label-size) + var(--playground-rows) * var(--playground-tile-size));
+}
+
+.playground-grid [data-playground-track='corner'] {
+	width: var(--playground-label-size);
+	height: var(--playground-label-size);
+}
+
+.playground-grid [data-playground-track='column-label'] {
+	width: var(--playground-tile-size);
+	height: var(--playground-label-size);
+}
+
+.playground-grid [data-playground-track='row-label'] {
+	width: var(--playground-label-size);
+	height: var(--playground-tile-size);
+}
+
+.playground-grid [data-playground-track='cell'] {
+	width: var(--playground-tile-size);
+	height: var(--playground-tile-size);
+}
+
+/* Entities: player, target, traps. Flat art - solid fills only, no strokes,
+   outlines or gradients - so they read clearly on the terrain textures. */
+/* Lava: a molten puddle. Flat orange with a fine grain, plus fixed light
+   patches that each fade in and out on their own linear clock. The edges are
+   soft and the puddle outline is deliberately uneven. */
+.lava-pool {
+	position: relative;
+	width: 78%;
+	aspect-ratio: 1;
+	clip-path: polygon(
+		50% 4%,
+		54.8% 5.8%,
+		59.4% 8.8%,
+		64% 11.5%,
+		69.1% 12.9%,
+		74.2% 14.1%,
+		78.3% 16.3%,
+		80.4% 20.6%,
+		81.4% 26%,
+		82.9% 31%,
+		85.9% 34.9%,
+		89.5% 38.5%,
+		92.3% 42.5%,
+		94.3% 47.5%,
+		95.4% 52.9%,
+		95.3% 58%,
+		93.3% 62.6%,
+		89.9% 67%,
+		86.4% 71%,
+		82.9% 74.4%,
+		79.3% 77.4%,
+		75.7% 80.6%,
+		72.4% 84.9%,
+		69.2% 89.4%,
+		65.4% 92.3%,
+		60.6% 92.1%,
+		55.3% 90.3%,
+		50% 89%,
+		45.1% 89.4%,
+		40.2% 90.3%,
+		35.3% 90.4%,
+		30% 89.5%,
+		24.7% 88%,
+		20.4% 85.2%,
+		18.1% 80.8%,
+		16.8% 75.3%,
+		15.4% 70%,
+		12.8% 65.6%,
+		10.1% 61.5%,
+		8.6% 57.3%,
+		9.3% 52.8%,
+		11.2% 48.2%,
+		12.6% 43.4%,
+		12.2% 38.2%,
+		11.4% 32.7%,
+		11.9% 28%,
+		14.9% 24.5%,
+		19.3% 21.6%,
+		23.6% 18.6%,
+		27.2% 14.8%,
+		30.7% 10.9%,
+		34.6% 7.7%,
+		39.5% 5.5%,
+		44.8% 4.1%
+	);
+	background-color: var(--color-lava);
+	background-image: var(--tex-lava-grain);
+	background-size: 64px 64px;
+	background-blend-mode: overlay;
+}
+
+.lava-glow {
+	position: absolute;
+	background: radial-gradient(
+		circle closest-side at 50% 50%,
+		color-mix(in oklch, var(--color-lava) 62%, white) 0%,
+		color-mix(in oklch, var(--color-lava) 62%, white) 42%,
+		transparent 100%
+	);
+	opacity: 0.05;
+	animation: lava-glow 2.6s linear infinite;
+	will-change: opacity;
+}
+
+@keyframes lava-glow {
+	0%,
+	100% {
+		opacity: 0.05;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
+
+/* Hole: a flat uneven pit - a drop hazard with no rim, line or shine. */
+.hole-pit {
+	width: 68%;
+	aspect-ratio: 1;
+	border-radius: 47% 53% 55% 45% / 53% 47% 56% 44%;
+	background-color: var(--color-hole);
+}
+
+/* Target: a narrow wedge cut from the cheese wheel, tilted and seen at an
+   angle so it has a top face and a front cut face. Still, and hidden while the
+   mouse occupies the cell. */
+.target-cheese {
+	position: relative;
+	width: 88%;
+	aspect-ratio: 1;
+}
+
+.target-cheese-side {
+	position: absolute;
+	inset: 0;
+	clip-path: polygon(
+		10% 78%,
+		51.3% 11.9%,
+		61.2% 19.1%,
+		69.8% 27.9%,
+		76.8% 37.8%,
+		82.3% 48.8%,
+		82.3% 64.8%,
+		10% 94%
+	);
+	background: color-mix(in oklch, var(--color-target) 70%, black);
+}
+
+.target-cheese-top {
+	position: absolute;
+	inset: 0;
+	clip-path: polygon(10% 78%, 51.3% 11.9%, 61.2% 19.1%, 69.8% 27.9%, 76.8% 37.8%, 82.3% 48.8%);
+	background-color: var(--color-target);
+	background-image: var(--tex-block);
+	background-size: 80px 80px;
+	background-blend-mode: overlay;
+}
+
+.target-cheese-hole {
+	position: absolute;
+	background: color-mix(in oklch, var(--color-target) 90%, black);
+}
+
+/* Holes in the cut side are a shade darker than the side itself. */
+.target-cheese-side .target-cheese-hole {
+	background: color-mix(in oklch, var(--color-target) 56%, black);
+}
+
+/* Player: a mouse seen from above - oval body, round ears set on the head,
+   dot eyes, a light nose and a tapering, slightly curled tail. Solid fills
+   only, with `--tex-block` grain. */
+.player-mouse {
+	position: relative;
+	width: 70%;
+	aspect-ratio: 1;
+	transition: rotate 160ms ease-out;
+	animation: mouse-idle 2.8s ease-in-out infinite;
+}
+
+.player-mouse-walking {
+	animation: mouse-walk 0.5s ease-in-out infinite;
+}
+
+/* Tail: one clipped shape that leaves the body's rear, sweeps out and tapers
+   to a curled tip. Sits behind the body, so only the visible part shows. */
+.player-mouse-tail {
+	position: absolute;
+	inset: 0;
+	transform-origin: 50% 82%;
+	clip-path: polygon(
+		44.06% 77.34%,
+		44.4% 85.05%,
+		42.2% 88.87%,
+		34.43% 92.45%,
+		26.16% 94.42%,
+		20% 93.5%,
+		25.84% 97.58%,
+		35.57% 97.55%,
+		45.8% 95.13%,
+		53.6% 88.95%,
+		55.94% 78.66%
+	);
+	background: color-mix(in oklch, var(--color-player) 52%, black);
+}
+
+.player-mouse-body {
+	position: absolute;
+	left: 50%;
+	top: 20%;
+	width: 58%;
+	height: 64%;
+	transform: translateX(-50%);
+	border-radius: 50%;
+	background-color: var(--color-player);
+	background-image: var(--tex-block);
+	background-size: 96px 96px;
+	background-blend-mode: overlay;
+}
+
+.player-mouse-ear {
+	position: absolute;
+	top: 26%;
+	width: 24%;
+	aspect-ratio: 1;
+	border-radius: 9999px;
+	background: color-mix(in oklch, var(--color-player) 62%, black);
+}
+
+.player-mouse-ear::after {
+	content: '';
+	position: absolute;
+	inset: 36%;
+	border-radius: 9999px;
+	background: color-mix(in oklch, var(--color-player) 30%, white);
+}
+
+.player-mouse-ear-left {
+	left: 12%;
+	transform: rotate(-8deg);
+}
+
+.player-mouse-ear-right {
+	right: 12%;
+	transform: rotate(8deg);
+}
+
+.player-mouse-eye {
+	position: absolute;
+	top: 30%;
+	width: 7%;
+	aspect-ratio: 1;
+	border-radius: 9999px;
+	background: color-mix(in oklch, var(--color-player) 18%, black);
+}
+
+.player-mouse-eye-left {
+	left: 37%;
+}
+
+.player-mouse-eye-right {
+	right: 37%;
+}
+
+.player-mouse-nose {
+	position: absolute;
+	left: 50%;
+	top: 15%;
+	width: 11%;
+	height: 7%;
+	transform: translateX(-50%);
+	border-radius: 50%;
+	background: color-mix(in oklch, var(--color-player) 32%, white);
+}
+
+@keyframes mouse-idle {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.012);
+	}
+}
+
+@keyframes mouse-walk {
+	0%,
+	100% {
+		transform: translateY(0.5%) scaleY(0.99) scaleX(1.01);
+	}
+	50% {
+		transform: translateY(-2%) scaleY(1.015) scaleX(0.99);
+	}
+}
+
+.player-mouse-walking .player-mouse-tail {
+	animation: mouse-tail 0.5s ease-in-out infinite;
+}
+
+@keyframes mouse-tail {
+	0%,
+	100% {
+		transform: rotate(-4deg);
+	}
+	50% {
+		transform: rotate(4deg);
+	}
+}
+
+/* The player layer sits above the neighbouring cells (scoped by the table's
+   `isolate`), so a step can slide across the border instead of being painted
+   under the next cell. */
+.player-figure {
+	z-index: 1;
+}
+
+/* Walking: the mouse starts offset in the cell it came from and slides into
+   its own. The offsets are set inline per step, so a plain move and an ice
+   slide share this one animation. */
+.player-step {
+	animation: player-step var(--step-ms, 320ms) ease-in-out;
+}
+
+@keyframes player-step {
+	from {
+		transform: translate(calc(var(--step-x, 0) * 100%), calc(var(--step-y, 0) * 100%));
+	}
+	to {
+		transform: translate(0, 0);
+	}
+}
+
+/* The cheese waits for the mouse to actually land on its cell: while the player
+   is sliding in, the target keeps the cheese and only hides it the moment the
+   step ends (`steps(1, end)` holds opacity 1 for the whole step). */
+.target-arrive {
+	animation: target-arrive var(--step-ms, 320ms) steps(1, end) forwards;
+}
+
+@keyframes target-arrive {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.target-arrive {
+		animation: none;
+		opacity: 0;
+	}
+}
+
+/* The level title slides in from the side the player came from (levels are
+   ordered left to right). */
+.level-title-in-left {
+	animation: level-title-in-left 260ms ease-out;
+}
+
+.level-title-in-right {
+	animation: level-title-in-right 260ms ease-out;
+}
+
+@keyframes level-title-in-left {
+	from {
+		transform: translateX(-1.5rem);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes level-title-in-right {
+	from {
+		transform: translateX(1.5rem);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.level-title-in-left,
+	.level-title-in-right,
+	.lava-glow,
+	.player-step,
+	.player-mouse,
+	.player-mouse-walking,
+	.player-mouse-walking .player-mouse-tail {
+		animation: none;
+	}
+}
+
+.player-fall {
+	animation: player-fall 750ms cubic-bezier(0.45, 0, 0.85, 0.5) forwards;
+}
+
+@keyframes player-fall {
+	0% {
+		transform: rotate(0deg) scale(1) translateY(0);
+		opacity: 1;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		transform: rotate(-540deg) scale(0.05) translateY(10%);
+		opacity: 0;
+	}
+}
+
+.player-burn {
+	animation: player-burn 850ms ease-out forwards;
+}
+
+@keyframes player-burn {
+	0% {
+		transform: translateY(0) scale(1);
+		opacity: 1;
+		filter: none;
+	}
+	35% {
+		transform: translateY(-18%) scale(0.94);
+		opacity: 0.8;
+		filter: brightness(1.4) saturate(1.4) blur(0.5px);
+	}
+	100% {
+		transform: translateY(-70%) scale(0.45);
+		opacity: 0;
+		filter: brightness(1.8) saturate(1.6) blur(2px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.player-fall,
+	.player-burn {
+		animation: player-fade 400ms ease-out forwards;
+	}
+}
+
+@keyframes player-fade {
+	to {
+		opacity: 0;
+	}
+}
+
+/**
+ * Builder brush: the nib that follows the pointer over the drawing board.
+ * It is anchored so its point sits exactly on the pointer, with the block
+ * being painted beside it, no chip around either. Hidden on coarse
+ * pointers, where the finger is the cursor.
+ */
+.builder-brush {
+	position: fixed;
+	z-index: 90;
+	width: 0;
+	height: 0;
+	display: none;
+	pointer-events: none;
+}
+
+@media (pointer: fine) {
+	.builder-brush {
+		display: block;
+	}
+}
+
+/* The pen box is anchored at the pointer and shifted one full box from it,
+   so the nib's point covers the spot that paints. */
+.builder-brush-pen {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 1.5rem;
+	height: 1.5rem;
+	transform: translate(100%, 100%);
+	color: var(--color-content);
+	filter: drop-shadow(0 0 1px var(--color-surface))
+		drop-shadow(0 1px 1px color-mix(in oklch, black 45%, transparent));
+}
+
+/* The block being painted sits beside the nib, with no chip around it. */
+.builder-brush-tool {
+	position: absolute;
+	left: 1.5rem;
+	top: 1.5rem;
+}
+
+/** Browser specific styles */
+&[data-browser-engine='gecko'] {
+	.is-dragging {
+		@apply opacity-100;
+	}
+}
+
+&[data-browser-engine='blink'],
+&[data-browser-engine='webkit'],
+&[data-browser-engine='other'] {
+	.is-dragging {
+		@apply opacity-80;
+	}
+}
+
+/* On a phone the header wraps onto two rows: the wordmark on its own centred
+   line, then the action and the controls below it. The header box grows and
+   the body's top padding follows it. */
+@media (width < 40rem) {
+	html {
+		--app-header-height: calc(var(--app-chrome-height) + 1.75rem);
+	}
+
+	html body header {
+		height: var(--app-header-height);
+		flex-wrap: wrap;
+		align-content: center;
+		padding-block: 0.25rem;
+		row-gap: 0.1rem;
+
+		h1 {
+			order: 1;
+			flex-basis: 100%;
+			padding-inline: 0;
+		}
+
+		h1:has(img[src*='logo-builder']) {
+			column-gap: 0.75rem;
+		}
+
+		> #header-build-slot {
+			order: 2;
+			margin-inline-start: 0.35rem;
+		}
+
+		> #header-skin-slot {
+			order: 3;
+			margin-inline-start: auto;
+		}
+
+		> #header-language-slot {
+			order: 4;
+		}
+
+		> #header-sound-slot {
+			order: 5;
+			margin-inline-end: 0.35rem;
+		}
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"id": "243f933f-3305-499c-880f-79e5c1b74a29",
+	"title": { "en": "Round and Round", "sr-Latn-RS": "U krug" },
+	"slug": "6",
+	"width": 5,
+	"height": 7,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "ground", "wall"],
+		["wall", "wall", "wall", "ground", "wall"],
+		["wall", "wall", "wall", "ground", "wall"],
+		["wall", "ground", "wall", "ground", "wall"],
+		["wall", "ground", "ground", "ground", "wall"],
+		["wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 1,
+		"y": 4,
+		"direction": "down"
+	},
+	"target": {
+		"x": 3,
+		"y": 1
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "for"],
+	"defaultActions": [],
+	"looks": {
+		"wall": {
+			"terrain": "amber"
+		}
+	},
+	"optimalActionCount": 8,
+	"optimalIterations": 19,
+	"optimalSolution": [
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "turn-left"
+		},
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "move-forward"
+		},
+		{
+			"action": "turn-left"
+		},
+		{
+			"action": "for",
+			"count": 4,
+			"children": [
+				{
+					"action": "move-forward"
+				}
+			]
+		}
+	]
+}

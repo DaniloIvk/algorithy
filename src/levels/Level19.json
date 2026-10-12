@@ -1,0 +1,66 @@
+{
+	"id": "b90138ed-1a8d-4a7d-9c9a-2b6e8a3c4e5f",
+	"title": { "en": "The Long Slide", "sr-Latn-RS": "Dugačko klizanje" },
+	"slug": "19",
+	"width": 9,
+	"height": 9,
+	"map": [
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "ice", "ice", "wall", "wall", "wall"],
+		["wall", "wall", "wall", "ice", "ground", "ice", "ice", "wall", "wall"],
+		["wall", "wall", "ice", "ice", "ice", "ice", "ice", "ice", "wall"],
+		["wall", "wall", "wall", "ice", "ice", "ice", "ice", "ice", "wall"],
+		["wall", "wall", "ice", "ice", "ice", "ice", "wall", "ice", "wall"],
+		["wall", "ice", "ice", "ice", "ice", "wall", "ice", "ice", "wall"],
+		["wall", "wall", "ice", "ice", "ice", "ice", "ice", "wall", "wall"],
+		["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+	],
+	"player": {
+		"x": 2,
+		"y": 3,
+		"direction": "right"
+	},
+	"target": {
+		"x": 3,
+		"y": 4
+	},
+	"allowedActions": ["move-forward", "turn-left", "turn-right", "if", "for", "while", "switch"],
+	"defaultActions": [],
+	"looks": {
+		"ground": {
+			"terrain": "icy-blue"
+		},
+		"wall": {
+			"terrain": "icy-blue"
+		},
+		"ice": {
+			"terrain": "ice"
+		}
+	},
+	"optimalActionCount": 6,
+	"optimalIterations": 49,
+	"optimalSolution": [
+		{
+			"action": "while",
+			"children": [
+				{
+					"action": "move-forward"
+				},
+				{
+					"action": "if",
+					"condition": "path-right",
+					"children": [
+						{
+							"action": "turn-right"
+						}
+					],
+					"elseChildren": [
+						{
+							"action": "turn-left"
+						}
+					]
+				}
+			]
+		}
+	]
+}

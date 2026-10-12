@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1117.6" height="177.8" viewBox="0 0 1117.6 177.8" role="img" aria-label="Level Builder" shape-rendering="crispEdges">
+	<g fill="#44aa00">
+		<!-- L -->
+		<rect x="0" y="0" width="25.4" height="25.4" />
+		<rect x="0" y="25.4" width="25.4" height="25.4" />
+		<rect x="0" y="50.8" width="25.4" height="25.4" />
+		<rect x="0" y="76.2" width="25.4" height="25.4" />
+		<rect x="0" y="101.6" width="25.4" height="25.4" />
+		<rect x="25.4" y="101.6" width="25.4" height="25.4" />
+		<rect x="50.8" y="101.6" width="25.4" height="25.4" />
+		<!-- e -->
+		<rect x="101.6" y="50.8" width="25.4" height="25.4" />
+		<rect x="127" y="50.8" width="25.4" height="25.4" />
+		<rect x="152.4" y="50.8" width="25.4" height="25.4" />
+		<rect x="101.6" y="76.2" width="25.4" height="25.4" />
+		<rect x="101.6" y="101.6" width="25.4" height="25.4" />
+		<rect x="127" y="101.6" width="25.4" height="25.4" />
+		<rect x="152.4" y="101.6" width="25.4" height="25.4" />
+		<!-- v -->
+		<rect x="203.2" y="50.8" width="25.4" height="25.4" />
+		<rect x="254" y="50.8" width="25.4" height="25.4" />
+		<rect x="203.2" y="76.2" width="25.4" height="25.4" />
+		<rect x="254" y="76.2" width="25.4" height="25.4" />
+		<rect x="228.6" y="101.6" width="25.4" height="25.4" />
+		<!-- e -->
+		<rect x="304.8" y="50.8" width="25.4" height="25.4" />
+		<rect x="330.2" y="50.8" width="25.4" height="25.4" />
+		<rect x="355.6" y="50.8" width="25.4" height="25.4" />
+		<rect x="304.8" y="76.2" width="25.4" height="25.4" />
+		<rect x="304.8" y="101.6" width="25.4" height="25.4" />
+		<rect x="330.2" y="101.6" width="25.4" height="25.4" />
+		<rect x="355.6" y="101.6" width="25.4" height="25.4" />
+		<!-- l -->
+		<rect x="406.4" y="0" width="25.4" height="25.4" />
+		<rect x="406.4" y="25.4" width="25.4" height="25.4" />
+		<rect x="406.4" y="50.8" width="25.4" height="25.4" />
+		<rect x="406.4" y="76.2" width="25.4" height="25.4" />
+		<rect x="406.4" y="101.6" width="25.4" height="25.4" />
+		<!-- B -->
+		<rect x="508" y="0" width="25.4" height="25.4" />
+		<rect x="533.4" y="0" width="25.4" height="25.4" />
+		<rect x="558.8" y="0" width="25.4" height="25.4" />
+		<rect x="584.2" y="0" width="25.4" height="25.4" />
+		<rect x="508" y="25.4" width="25.4" height="25.4" />
+		<rect x="584.2" y="25.4" width="25.4" height="25.4" />
+		<rect x="508" y="50.8" width="25.4" height="25.4" />
+		<rect x="533.4" y="50.8" width="25.4" height="25.4" />
+		<rect x="558.8" y="50.8" width="25.4" height="25.4" />
+		<rect x="584.2" y="50.8" width="25.4" height="25.4" />
+		<rect x="508" y="76.2" width="25.4" height="25.4" />
+		<rect x="584.2" y="76.2" width="25.4" height="25.4" />
+		<rect x="508" y="101.6" width="25.4" height="25.4" />
+		<rect x="533.4" y="101.6" width="25.4" height="25.4" />
+		<rect x="558.8" y="101.6" width="25.4" height="25.4" />
+		<rect x="584.2" y="101.6" width="25.4" height="25.4" />
+		<!-- u -->
+		<rect x="635" y="50.8" width="25.4" height="25.4" />
+		<rect x="685.8" y="50.8" width="25.4" height="25.4" />
+		<rect x="635" y="76.2" width="25.4" height="25.4" />
+		<rect x="685.8" y="76.2" width="25.4" height="25.4" />
+		<rect x="635" y="101.6" width="25.4" height="25.4" />
+		<rect x="660.4" y="101.6" width="25.4" height="25.4" />
+		<rect x="685.8" y="101.6" width="25.4" height="25.4" />
+		<!-- i -->
+		<rect x="736.6" y="25.4" width="25.4" height="25.4" />
+		<rect x="736.6" y="76.2" width="25.4" height="25.4" />
+		<rect x="736.6" y="101.6" width="25.4" height="25.4" />
+		<!-- l -->
+		<rect x="787.4" y="0" width="25.4" height="25.4" />
+		<rect x="787.4" y="25.4" width="25.4" height="25.4" />
+		<rect x="787.4" y="50.8" width="25.4" height="25.4" />
+		<rect x="787.4" y="76.2" width="25.4" height="25.4" />
+		<rect x="787.4" y="101.6" width="25.4" height="25.4" />
+		<!-- d -->
+		<rect x="889" y="0" width="25.4" height="25.4" />
+		<rect x="889" y="25.4" width="25.4" height="25.4" />
+		<rect x="838.2" y="50.8" width="25.4" height="25.4" />
+		<rect x="863.6" y="50.8" width="25.4" height="25.4" />
+		<rect x="889" y="50.8" width="25.4" height="25.4" />
+		<rect x="838.2" y="76.2" width="25.4" height="25.4" />
+		<rect x="889" y="76.2" width="25.4" height="25.4" />
+		<rect x="838.2" y="101.6" width="25.4" height="25.4" />
+		<rect x="863.6" y="101.6" width="25.4" height="25.4" />
+		<rect x="889" y="101.6" width="25.4" height="25.4" />
+		<!-- e -->
+		<rect x="939.8" y="50.8" width="25.4" height="25.4" />
+		<rect x="965.2" y="50.8" width="25.4" height="25.4" />
+		<rect x="990.6" y="50.8" width="25.4" height="25.4" />
+		<rect x="939.8" y="76.2" width="25.4" height="25.4" />
+		<rect x="939.8" y="101.6" width="25.4" height="25.4" />
+		<rect x="965.2" y="101.6" width="25.4" height="25.4" />
+		<rect x="990.6" y="101.6" width="25.4" height="25.4" />
+		<!-- r -->
+		<rect x="1041.4" y="50.8" width="25.4" height="25.4" />
+		<rect x="1066.8" y="50.8" width="25.4" height="25.4" />
+		<rect x="1092.2" y="50.8" width="25.4" height="25.4" />
+		<rect x="1041.4" y="76.2" width="25.4" height="25.4" />
+		<rect x="1041.4" y="101.6" width="25.4" height="25.4" />
+	</g>
+</svg>
