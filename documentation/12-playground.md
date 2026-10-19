@@ -36,7 +36,7 @@ custom properties and applied explicitly.
 3. `.playground-grid` gets `--playground-columns` and `--playground-rows`
    (the map size) and derives:
    - `--playground-label-size` - the label track, `clamp(1.5rem, 6% of the
-limit, min(2.25rem, half a tile))`, so digits fit but never eat the
+     limit, min(2.25rem, half a tile))`, so digits fit but never eat the
      board;
    - `--playground-tile-size` - the smaller of (frame width minus label) per
      column and (limit minus label) per row.

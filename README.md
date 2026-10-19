@@ -51,3 +51,19 @@ preload and driven by `src/dom-harness.tsx`; there is no Testing Library and no
 mocking. Coverage is reported, not enforced. The philosophy, the file-by-file
 map and the short list of intentionally dark lines live in
 `documentation/19-testing.md` and `documentation/21-known-issues-and-gaps.md`.
+
+## Docker
+
+The image builds the static site and serves it with a minimal nginx
+(`nginx:alpine-slim`, ~5.5 MB compressed). One stage installs dependencies and
+runs `bun run build`; the final stage copies the built `dist/` into nginx's web
+root together with a tiny config that provides the docs directory index and the
+single-page fallback, while missing `/assets/*` still 404s.
+
+```sh
+docker build -t algorithy .
+docker run --rm -p 3000:80 algorithy
+```
+
+Opens on <http://localhost:3000>. Podman works the same way (`podman build`,
+`podman run`).

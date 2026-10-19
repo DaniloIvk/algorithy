@@ -34,7 +34,6 @@ type SequenceProps = {
 
 type ForBlockProps = PropsWithChildren<PaletteProps | SequenceProps>;
 
-// A `for` loop takes children, so it collapses like the other container blocks.
 function ForBlock(props: ForBlockProps): JSX.Element {
 	const { variant, depth = 0, children } = props;
 	const letter = loopLetterForDepth(depth);
@@ -80,7 +79,7 @@ function ForBlock(props: ForBlockProps): JSX.Element {
 		>
 			<BlockShell
 				variant={isGrayed ? 'gray' : 'yellow'}
-				class='max-w-max flex-row flex-nowrap gap-1.5'
+				class='max-w-max flex-row flex-nowrap gap-1'
 			>
 				<Activity
 					when={isSequence}
@@ -92,7 +91,7 @@ function ForBlock(props: ForBlockProps): JSX.Element {
 						/>
 					}
 				/>
-				<label class='inline-flex flex-row flex-nowrap items-center-safe justify-center-safe gap-1.5'>
+				<label class='inline-flex flex-row flex-nowrap items-center-safe justify-center-safe gap-1'>
 					{messages.block_for_header_prefix()}
 					<code>{letter}</code>
 					{messages.block_for_header_suffix()}
@@ -105,10 +104,10 @@ function ForBlock(props: ForBlockProps): JSX.Element {
 						onInput={handleCountChange}
 						disabled={!isSequence || !isModifiable}
 						class={classNames(
-							'bg-content/15 hover:bg-content/20 active:bg-content/30 h-6 w-12 shrink-0 rounded border-hairline px-1 text-center text-sm leading-none focus:ring-1 focus:outline-none disabled:opacity-85',
+							'h-5 w-10 shrink-0 rounded-[0.25rem] border-0 px-1 text-center text-sm leading-none focus:ring-1 focus:outline-none disabled:opacity-85',
 							isGrayed
-								? 'border-content/25 focus:ring-content/25'
-								: 'border-warning/50 focus:ring-warning',
+								? 'bg-content/20 hover:bg-content/30 active:bg-content/45 focus:ring-content/25'
+								: 'bg-warning/35 hover:bg-warning/50 active:bg-warning/65 focus:ring-warning',
 						)}
 					/>
 					)
@@ -119,7 +118,7 @@ function ForBlock(props: ForBlockProps): JSX.Element {
 				<div style={{ isolation: 'isolate' }}>
 					<BlockShell
 						variant={isGrayed ? 'washed-out-gray' : 'washed-out-yellow'}
-						class='flex-col flex-nowrap py-2'
+						class='w-full flex-col flex-nowrap pt-1.5 pb-3.5'
 						isDragOver={isDragOver}
 					>
 						<Activity

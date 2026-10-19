@@ -95,7 +95,7 @@ function SwitchBlock(props: SwitchBlockProps): JSX.Element {
 		>
 			<BlockShell
 				variant={isGrayed ? 'gray' : 'orange'}
-				class='max-w-max flex-row flex-nowrap gap-1.5'
+				class='max-w-max flex-row flex-nowrap gap-1'
 			>
 				<BlockCollapseToggle
 					expanded={expanded}
@@ -150,10 +150,10 @@ function SwitchBlock(props: SwitchBlockProps): JSX.Element {
 						>
 							<BlockShell
 								variant={isGrayed ? 'washed-out-gray' : 'washed-out-orange'}
-								class='w-full flex-col flex-nowrap gap-1.5 py-2'
+								class='w-full flex-col flex-nowrap gap-1 pt-1.5 pb-3.5'
 								isDragOver={isBranchDragOver}
 							>
-								<div class='flex w-full items-center gap-2'>
+								<div class='flex w-full items-center gap-1.5'>
 									<BlockCollapseToggle
 										expanded={branchOpen}
 										onToggle={() => toggleBranch(index)}
@@ -164,7 +164,7 @@ function SwitchBlock(props: SwitchBlockProps): JSX.Element {
 										}
 										iconClass='size-3.5 shrink-0'
 									/>
-									<label class='inline-flex flex-row items-center-safe justify-center-safe gap-1.5'>
+									<label class='inline-flex flex-row items-center-safe justify-center-safe gap-1'>
 										<select
 											value={branch.condition}
 											aria-label={messages.block_switch_branch_condition()}
@@ -176,10 +176,10 @@ function SwitchBlock(props: SwitchBlockProps): JSX.Element {
 											}
 											disabled={modifiable === false || !onConditionChange}
 											class={classNames(
-												'bg-content/15 hover:bg-content/20 active:bg-content/30 shrink-0 rounded border-hairline px-1 leading-none focus:ring-1 focus:outline-none disabled:opacity-85',
+												'rounded-[0.25rem] shrink-0 border-0 px-1 leading-none focus:ring-1 focus:outline-none disabled:opacity-85',
 												isGrayed
-													? 'border-content/25 focus:ring-content/25'
-													: 'border-block-orange-border focus:ring-block-orange-border',
+													? 'bg-content/20 hover:bg-content/30 active:bg-content/45 focus:ring-content/25'
+													: 'bg-block-orange-border/45 hover:bg-block-orange-border/60 active:bg-block-orange-border/80 focus:ring-block-orange-border',
 											)}
 										>
 											{options.map((option) => (

@@ -349,6 +349,9 @@ html {
 	/* The header's own height: one fixed row on a wide screen, taller on a
 	   phone where it wraps onto two rows. The body's top padding follows it. */
 	--app-header-height: var(--app-chrome-height);
+	/* The footer holds one short line, so it gets its own, smaller height than
+	   the header instead of reusing the chrome size. */
+	--app-footer-height: clamp(2.75rem, 4.5dvh, 3.5rem);
 	--palette-height: clamp(10.5rem, 24dvh, 14rem);
 	/* Room the playground must leave on top of the palette: page padding and
 	   the column gaps. Pages with more chrome above the board (the builder's
@@ -356,7 +359,7 @@ html {
 	--playground-reserved: 5rem;
 
 	/* One height for every block so the top notch never overlaps content. */
-	--block-height: clamp(2.5rem, 2.1rem + 0.8vw, 3rem);
+	--block-height: clamp(2.25rem, 1.85rem + 0.7vw, 2.75rem);
 
 	/* Border widths track the root (`html` font-size) so the block shell, the
 	   block areas and the controls keep the same visual weight at any size.
@@ -463,9 +466,9 @@ html {
 		}
 
 		main#root {
-			@apply xs:px-3 flex h-full max-h-none w-full max-w-full min-w-full flex-1 flex-col items-stretch justify-stretch px-2 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 lg:px-10 lg:py-5 xl:px-16 xl:py-6;
+			@apply xs:px-3 flex h-full max-h-none w-full max-w-full min-w-full flex-1 flex-col items-stretch justify-stretch px-2 pt-1 pb-2 sm:px-4 sm:pt-2 sm:pb-3 md:px-6 md:pt-2 md:pb-4 lg:px-10 lg:pt-3 lg:pb-5 xl:px-16 xl:pt-4 xl:pb-6;
 
-			min-height: calc(100dvh - 2 * var(--app-chrome-height));
+			min-height: calc(100dvh - var(--app-header-height) - var(--app-footer-height));
 
 			background-color: transparent;
 		}
@@ -478,7 +481,7 @@ html {
 
 			grid-template-columns: 1fr auto 1fr;
 
-			height: var(--app-chrome-height);
+			height: var(--app-footer-height);
 
 			flex-shrink: 0;
 
@@ -490,7 +493,7 @@ html {
 				gap: 0.25rem 1rem;
 
 				height: auto;
-				min-height: var(--app-chrome-height);
+				min-height: var(--app-footer-height);
 				padding-block: 0.5rem;
 
 				text-align: center;
@@ -782,7 +785,8 @@ body[data-deletable-drag='true'] .palette {
 		max(
 			8rem,
 			calc(
-				100dvh - 2 * var(--app-chrome-height) - var(--palette-height) - var(--playground-reserved)
+				100dvh - var(--app-header-height) - var(--app-footer-height) - var(--palette-height) -
+					var(--playground-reserved)
 			)
 		)
 	);

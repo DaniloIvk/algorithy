@@ -32,98 +32,93 @@ const VARIANT_MAP: Record<
 		readonly reverseBackground: string;
 	}
 > = {
-	// Glass-like defaults: solid blocks 80% opaque, washed 60% opaque, both with backdrop-blur-[6px]
-	// Tested 70/50 vs 80/60: 70/50 too transparent and caused muddy stacking in nested for/if/while; 80/60 retains depth without mud
 	sky: {
 		border: 'border-block-sky-border',
-		background:
-			'bg-block-sky/80 backdrop-blur-[6px] group-hover:bg-block-sky-hover/80 group-active:bg-block-sky-active/80',
+		background: 'bg-block-sky group-hover:bg-block-sky-hover group-active:bg-block-sky-active',
 		borderBackground: 'bg-block-sky-border',
 		reverseBorder: 'border-block-sky-border',
-		reverseBackground: 'bg-block-sky/80 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-sky',
 	},
 	emerald: {
 		border: 'border-block-emerald-border',
 		background:
-			'bg-block-emerald/80 backdrop-blur-[6px] group-hover:bg-block-emerald-hover/80 group-active:bg-block-emerald-active/80',
+			'bg-block-emerald group-hover:bg-block-emerald-hover group-active:bg-block-emerald-active',
 		borderBackground: 'bg-block-emerald-border',
 		reverseBorder: 'border-block-emerald-border',
-		reverseBackground: 'bg-block-emerald/80 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-emerald',
 	},
 	yellow: {
 		border: 'border-block-yellow-border',
 		background:
-			'bg-block-yellow/80 backdrop-blur-[6px] group-hover:bg-block-yellow-hover/80 group-active:bg-block-yellow-active/80',
+			'bg-block-yellow group-hover:bg-block-yellow-hover group-active:bg-block-yellow-active',
 		borderBackground: 'bg-block-yellow-border',
 		reverseBorder: 'border-block-yellow-border',
-		reverseBackground: 'bg-block-yellow/80 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-yellow',
 	},
 	'washed-out-yellow': {
 		border: 'border-block-yellow-washed-border',
-		background: 'bg-block-yellow-washed/60 backdrop-blur-[6px]',
+		background: 'bg-block-yellow-washed',
 		borderBackground: 'bg-block-yellow-washed-border',
 		reverseBorder: 'border-block-yellow-washed-border',
-		reverseBackground: 'bg-block-yellow-washed/60 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-yellow-washed',
 	},
 	green: {
 		border: 'border-block-green-border',
 		background:
-			'bg-block-green/80 backdrop-blur-[6px] group-hover:bg-block-green-hover/80 group-active:bg-block-green-active/80',
+			'bg-block-green group-hover:bg-block-green-hover group-active:bg-block-green-active',
 		borderBackground: 'bg-block-green-border',
 		reverseBorder: 'border-block-green-border',
-		reverseBackground: 'bg-block-green/80 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-green',
 	},
 	'washed-out-green': {
 		border: 'border-block-green-washed-border',
-		background: 'bg-block-green-washed/60 backdrop-blur-[6px]',
+		background: 'bg-block-green-washed',
 		borderBackground: 'bg-block-green-washed-border',
 		reverseBorder: 'border-block-green-washed-border',
-		reverseBackground: 'bg-block-green-washed/60 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-green-washed',
 	},
 	red: {
 		border: 'border-block-red-border',
-		background:
-			'bg-block-red/80 backdrop-blur-[6px] group-hover:bg-block-red-hover/80 group-active:bg-block-red-active/80',
+		background: 'bg-block-red group-hover:bg-block-red-hover group-active:bg-block-red-active',
 		borderBackground: 'bg-block-red-border',
 		reverseBorder: 'border-block-red-border',
-		reverseBackground: 'bg-block-red/80 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-red',
 	},
 	'washed-out-red': {
 		border: 'border-block-red-washed-border',
-		background: 'bg-block-red-washed/60 backdrop-blur-[6px]',
+		background: 'bg-block-red-washed',
 		borderBackground: 'bg-block-red-washed-border',
 		reverseBorder: 'border-block-red-washed-border',
-		reverseBackground: 'bg-block-red-washed/60 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-red-washed',
 	},
 	orange: {
 		border: 'border-block-orange-border',
 		background:
-			'bg-block-orange/80 backdrop-blur-[6px] group-hover:bg-block-orange-hover/80 group-active:bg-block-orange-active/80',
+			'bg-block-orange group-hover:bg-block-orange-hover group-active:bg-block-orange-active',
 		borderBackground: 'bg-block-orange-border',
 		reverseBorder: 'border-block-orange-border',
-		reverseBackground: 'bg-block-orange/80 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-orange',
 	},
 	'washed-out-orange': {
 		border: 'border-block-orange-washed-border',
-		background: 'bg-block-orange-washed/60 backdrop-blur-[6px]',
+		background: 'bg-block-orange-washed',
 		borderBackground: 'bg-block-orange-washed-border',
 		reverseBorder: 'border-block-orange-washed-border',
-		reverseBackground: 'bg-block-orange-washed/60 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-orange-washed',
 	},
 	gray: {
 		border: 'border-block-gray-border',
-		background:
-			'bg-block-gray/80 backdrop-blur-[6px] group-hover:bg-block-gray-hover/80 group-active:bg-block-gray-active/80',
+		background: 'bg-block-gray group-hover:bg-block-gray-hover group-active:bg-block-gray-active',
 		borderBackground: 'bg-block-gray-border',
 		reverseBorder: 'border-block-gray-border',
-		reverseBackground: 'bg-block-gray/80 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-gray',
 	},
 	'washed-out-gray': {
 		border: 'border-block-gray-washed-border',
-		background: 'bg-block-gray-washed/60 backdrop-blur-[6px]',
+		background: 'bg-block-gray-washed',
 		borderBackground: 'bg-block-gray-washed-border',
 		reverseBorder: 'border-block-gray-washed-border',
-		reverseBackground: 'bg-block-gray-washed/60 backdrop-blur-[6px]',
+		reverseBackground: 'bg-block-gray-washed',
 	},
 };
 
@@ -187,7 +182,7 @@ function BlockShell(props: BlockShellProps): JSX.Element {
 	return (
 		<div
 			class={classNames(
-				'xs:gap-2 relative z-10 flex min-h-[var(--block-height)] cursor-grab items-center-safe justify-center-safe gap-1.5 rounded px-[clamp(0.625rem,0.45rem_+_0.5vw,1rem)] py-[clamp(0.25rem,0.15rem_+_0.35vw,0.5rem)] text-black transition-colors select-none **:content-center-safe **:text-center **:align-middle **:text-[clamp(0.8125rem,0.7rem_+_0.3vw,1rem)] **:leading-[1.25] **:font-normal active:cursor-grabbing dark:text-white',
+				'xs:gap-2 relative z-10 flex min-h-(--block-height) cursor-grab items-center-safe justify-center-safe gap-1.5 rounded px-[clamp(0.75rem,0.6rem_+_0.4vw,1rem)] py-[clamp(0.125rem,0.05rem_+_0.25vw,0.375rem)] text-black transition-colors select-none **:content-center-safe **:text-center **:align-middle **:text-[clamp(0.8125rem,0.7rem_+_0.3vw,1rem)] **:leading-[1.25] **:font-normal active:cursor-grabbing dark:text-white',
 				hasHoverState && 'group',
 			)}
 		>
@@ -216,7 +211,7 @@ function BlockShell(props: BlockShellProps): JSX.Element {
 			</div>
 			<div
 				class={classNames(
-					'absolute top-full left-1/2 z-30 -mt-[0.525rem] h-[0.8rem] w-[0.8rem] -translate-x-1/2 rotate-45 rounded-[0.25rem] border-block transition-colors',
+					'absolute top-full left-1/2 z-30 mt-[-0.525rem] h-[0.8rem] w-[0.8rem] -translate-x-1/2 rotate-45 rounded-[0.25rem] border-block transition-colors',
 					colors.border,
 					colors.background,
 				)}

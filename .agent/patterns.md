@@ -30,7 +30,7 @@ recipes.
 
 - Import hooks from `hono/jsx`; the DOM runtime JSX types come from
   `hono/jsx/dom/jsx-runtime`. `tsconfig` sets `jsxImportSource:
-hono/jsx/dom`.
+  hono/jsx/dom`.
 - Use the `Activity` helper for conditional rendering:
 
   ```tsx

@@ -90,7 +90,7 @@ function IfBlock(props: IfBlockProps): JSX.Element {
 		>
 			<BlockShell
 				variant={isGrayed ? 'gray' : 'green'}
-				class='max-w-max flex-row flex-nowrap gap-1.5'
+				class='max-w-max flex-row flex-nowrap gap-1'
 			>
 				{isSequence ? (
 					<BlockCollapseToggle
@@ -101,17 +101,17 @@ function IfBlock(props: IfBlockProps): JSX.Element {
 				) : (
 					<div />
 				)}
-				<label class='inline-flex flex-row items-center-safe justify-center-safe gap-1.5'>
+				<label class='inline-flex flex-row items-center-safe justify-center-safe gap-1'>
 					{messages.block_if_label()}
 					<select
 						value={condition}
 						onChange={handleConditionChange}
 						disabled={!isSequence || !isModifiable}
 						class={classNames(
-							'bg-content/15 hover:bg-content/20 active:bg-content/30 shrink-0 rounded border-hairline px-1 leading-none focus:ring-1 focus:outline-none disabled:opacity-85',
+							'rounded-[0.25rem] shrink-0 border-0 px-1 leading-none focus:ring-1 focus:outline-none disabled:opacity-85',
 							isGrayed
-								? 'border-content/25 focus:ring-content/25'
-								: 'border-success/50 focus:ring-success',
+								? 'bg-content/20 hover:bg-content/30 active:bg-content/45 focus:ring-content/25'
+								: 'bg-success/35 hover:bg-success/50 active:bg-success/65 focus:ring-success',
 						)}
 					>
 						{conditionNames.map((name) => (
@@ -130,10 +130,10 @@ function IfBlock(props: IfBlockProps): JSX.Element {
 					>
 						<BlockShell
 							variant={isGrayed ? 'washed-out-gray' : 'washed-out-green'}
-							class='w-full flex-col flex-nowrap py-2 pt-7'
+							class='w-full flex-col flex-nowrap pt-5 pb-3.5'
 							isDragOver={thenDragOver}
 						>
-							<div class='flex min-h-8 w-full flex-col items-center-safe p-2'>
+							<div class='flex min-h-8 w-full flex-col items-center-safe pt-2'>
 								<ThenLabel />
 								<Activity
 									when={expanded}
@@ -158,10 +158,10 @@ function IfBlock(props: IfBlockProps): JSX.Element {
 					>
 						<BlockShell
 							variant={isGrayed ? 'washed-out-gray' : 'washed-out-yellow'}
-							class='w-full flex-col flex-nowrap py-2 pt-7'
+							class='w-full flex-col flex-nowrap pt-5 pb-3.5'
 							isDragOver={elseDragOver}
 						>
-							<div class='flex min-h-8 w-full flex-col items-center-safe p-2'>
+							<div class='flex min-h-8 w-full flex-col items-center-safe pt-2'>
 								<ElseLabel />
 								<Activity
 									when={expanded}

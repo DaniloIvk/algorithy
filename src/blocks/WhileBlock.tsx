@@ -57,10 +57,7 @@ function WhileBlock(props: WhileBlockProps): JSX.Element {
 			class='relative flex w-max max-w-full flex-col select-none'
 			style={{ isolation: 'isolate' }}
 		>
-			<BlockShell
-				variant={isGrayed ? 'gray' : 'red'}
-				class='max-w-max flex-row flex-nowrap gap-1.5'
-			>
+			<BlockShell variant={isGrayed ? 'gray' : 'red'} class='max-w-max flex-row flex-nowrap gap-1'>
 				<Activity
 					when={isSequence}
 					children={
@@ -71,7 +68,7 @@ function WhileBlock(props: WhileBlockProps): JSX.Element {
 						/>
 					}
 				/>
-				<span class='inline-flex flex-row flex-nowrap items-center-safe justify-center-safe gap-1.5'>
+				<span class='inline-flex flex-row flex-nowrap items-center-safe justify-center-safe gap-1'>
 					{messages.block_while_header_prefix()}{' '}
 					<span class='inline-flex h-5 w-5 shrink-0 items-center-safe justify-center-safe'>
 						<TargetCheese />
@@ -84,7 +81,7 @@ function WhileBlock(props: WhileBlockProps): JSX.Element {
 				<div style={{ isolation: 'isolate' }}>
 					<BlockShell
 						variant={isGrayed ? 'washed-out-gray' : 'washed-out-red'}
-						class='flex-col flex-nowrap py-2'
+						class='w-full flex-col flex-nowrap pt-1.5 pb-3.5'
 						isDragOver={isDragOver}
 					>
 						<Activity

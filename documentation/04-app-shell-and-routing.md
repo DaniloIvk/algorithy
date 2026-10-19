@@ -77,7 +77,7 @@ LocaleProvider
 - **SkinProvider** loads the stored player skin, applies
   `data-player-skin` to `<html>`, and offers the chooser/switcher.
 - **ShellText** writes the translated header, footer and `<meta
-name="description">` on mount and on every locale change (they live outside
+  name="description">` on mount and on every locale change (they live outside
   the app tree in `index.html`).
 - **HeaderTitle** keeps the header mark in step with the route: on `/build` it
   swaps the Algorithy wordmark for the builder's own pixel wordmarks - one

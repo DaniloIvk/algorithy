@@ -12,8 +12,8 @@
 **/.vinxi
 **/paraglide
 
-# paraglide
-**/project.inlang
+# paraglide (keep settings.json: `bun run i18n` reads it)
+**/project.inlang/*
 !**/project.inlang/settings.json
 
 # solid/vite build artifacts
