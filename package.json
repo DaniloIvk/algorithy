@@ -24,19 +24,19 @@
 	},
 	"dependencies": {
 		"@tailwindcss/cli": "^4.3.3",
-		"hono": "^4.13.13",
-		"lucide": "^1.55.0",
+		"hono": "^4.13.14",
+		"lucide": "^1.63.0",
 		"tailwindcss": "^4.3.3",
 		"valibot": "^1.5.0"
 	},
 	"devDependencies": {
 		"@happy-dom/global-registrator": "^20.14.6",
-		"@inlang/paraglide-js": "^2.29.0",
-		"@types/bun": "^1.4.3",
+		"@inlang/paraglide-js": "^2.29.3",
+		"@types/bun": "^1.4.4",
 		"oxfmt": "^0.72.0",
-		"oxlint": "^1.88.0",
-		"oxlint-tsgolint": "^7.0.2004",
+		"oxlint": "^1.90.0",
+		"oxlint-tsgolint": "^7.0.2005",
 		"typescript": "^7.0.2"
 	},
-	"packageManager": "bun@1.4.3"
+	"packageManager": "bun@1.4.4"
 }
