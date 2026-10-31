@@ -185,10 +185,8 @@ function LevelContent({ level, currentSlug, nextSlug, shared }: LevelContentProp
 				<OutcomeModal
 					status={simulationState.status}
 					level={level}
-					sequence={sequenceState.sequence}
 					nextSlug={nextSlug}
 					usedBlockCount={simulationState.usedBlockCount}
-					usedIterations={simulationState.usedIterations}
 					showBuilderLink={allLevelsCompleted}
 					isExportOpen={isExportOpen}
 					onExport={() => setIsExportOpen(true)}

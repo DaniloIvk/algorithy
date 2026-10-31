@@ -160,40 +160,6 @@
 			}
 		}
 	],
-	"outcome_details_cycles_over": [
-		{
-			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
-			"selectors": ["usedPlural"],
-			"match": {
-				"usedPlural=one": "Iskoristili ste {used} ciklus, a ideal je {optimal}. Pokušajte da smanjite cikluse.",
-				"usedPlural=few": "Iskoristili ste {used} ciklusa, a ideal je {optimal}. Pokušajte da smanjite cikluse.",
-				"usedPlural=other": "Iskoristili ste {used} ciklusa, a ideal je {optimal}. Pokušajte da smanjite cikluse."
-			}
-		}
-	],
-	"outcome_details_cycles_over_repetitions": "Rešenje je ispravno, ali se petlja ponavlja više puta nego što je potrebno.",
-	"outcome_details_cycles_perfect": [
-		{
-			"declarations": ["input used", "local usedPlural = used: plural"],
-			"selectors": ["usedPlural"],
-			"match": {
-				"usedPlural=one": "Savršeno! {used} ciklus - idealno za ovaj nivo.",
-				"usedPlural=few": "Savršeno! {used} ciklusa - idealno za ovaj nivo.",
-				"usedPlural=other": "Savršeno! {used} ciklusa - idealno za ovaj nivo."
-			}
-		}
-	],
-	"outcome_details_cycles_under": [
-		{
-			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
-			"selectors": ["usedPlural"],
-			"match": {
-				"usedPlural=one": "Neverovatno! Iskoristili ste samo {used} ciklus - mislili smo da je {optimal} minimum. Nadmašili ste našu procenu!",
-				"usedPlural=few": "Neverovatno! Iskoristili ste samo {used} ciklusa - mislili smo da je {optimal} minimum. Nadmašili ste našu procenu!",
-				"usedPlural=other": "Neverovatno! Iskoristili ste samo {used} ciklusa - mislili smo da je {optimal} minimum. Nadmašili ste našu procenu!"
-			}
-		}
-	],
 	"outcome_modal_aria_label": "Nivo završen",
 	"outcome_modal_next_level": "Sledeći nivo",
 	"outcome_modal_title_won": "Cilj dostignut!",

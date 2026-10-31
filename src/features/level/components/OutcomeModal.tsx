@@ -2,7 +2,6 @@ import { useEffect } from 'hono/jsx';
 import Activity from '../../../components/Activity';
 import type { RunOutcome } from '../../../domain/simulation';
 import type { LevelData } from '../../../schemas/level.schema';
-import type { SequenceItem } from '../../../schemas/sequence.schema';
 import { Link } from '../../../lib/router';
 import { messages } from '../../../lib/i18n';
 import { OutcomeDetails } from './OutcomeDetails';
@@ -10,10 +9,8 @@ import { OutcomeDetails } from './OutcomeDetails';
 type OutcomeModalProperties = {
 	readonly status: RunOutcome | 'idle' | 'running';
 	readonly level: LevelData;
-	readonly sequence: readonly SequenceItem[];
 	readonly nextSlug: string | null;
 	readonly usedBlockCount: number;
-	readonly usedIterations: bigint;
 	readonly showBuilderLink: boolean;
 	readonly isExportOpen: boolean;
 	readonly onExport: () => void;
@@ -23,10 +20,8 @@ type OutcomeModalProperties = {
 function OutcomeModal({
 	status,
 	level,
-	sequence,
 	nextSlug,
 	usedBlockCount,
-	usedIterations,
 	showBuilderLink,
 	isExportOpen,
 	onExport,
@@ -67,12 +62,7 @@ function OutcomeModal({
 					</button>
 					<div class='text-content pr-6 text-base'>
 						<span class='block text-lg font-semibold'>{messages.outcome_modal_title_won()}</span>
-						<OutcomeDetails
-							level={level}
-							sequence={sequence}
-							usedBlockCount={usedBlockCount}
-							usedIterations={usedIterations}
-						/>
+						<OutcomeDetails level={level} usedBlockCount={usedBlockCount} />
 					</div>
 					<div class='flex flex-col gap-3'>
 						<div class='flex flex-col gap-3 sm:flex-row'>

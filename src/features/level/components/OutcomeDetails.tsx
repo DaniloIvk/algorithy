@@ -1,7 +1,4 @@
-import Activity from '../../../components/Activity';
-import { detectExcessRepetitions } from '../../../domain/simulation';
 import type { LevelData } from '../../../schemas/level.schema';
-import type { SequenceItem } from '../../../schemas/sequence.schema';
 import { messages } from '../../../lib/i18n';
 
 type BlockCountFeedbackProperties = {
@@ -37,78 +34,18 @@ function BlockCountFeedback({ usedBlockCount, optimalBlockCount }: BlockCountFee
 	);
 }
 
-type IterationFeedbackProperties = {
-	readonly usedIterations: bigint;
-	readonly optimalIterations: bigint;
-	readonly hasExcessRepetitions: boolean;
-};
-
-function IterationFeedback({
-	usedIterations,
-	optimalIterations,
-	hasExcessRepetitions,
-}: IterationFeedbackProperties) {
-	const used = Number(usedIterations);
-	const optimal = Number(optimalIterations);
-
-	if (usedIterations === optimalIterations) {
-		return (
-			<span class='text-success block'>{messages.outcome_details_cycles_perfect({ used })}</span>
-		);
-	}
-
-	if (usedIterations < optimalIterations) {
-		return (
-			<span class='text-success block'>
-				{messages.outcome_details_cycles_under({ used, optimal })}
-			</span>
-		);
-	}
-
-	if (hasExcessRepetitions) {
-		return (
-			<span class='text-warning block'>{messages.outcome_details_cycles_over_repetitions()}</span>
-		);
-	}
-
-	return (
-		<span class='text-warning block'>
-			{messages.outcome_details_cycles_over({ used, optimal })}
-		</span>
-	);
-}
-
 type OutcomeDetailsProperties = {
 	readonly level: LevelData;
-	readonly sequence: readonly SequenceItem[];
 	readonly usedBlockCount: number;
-	readonly usedIterations: bigint;
 };
 
-function OutcomeDetails({
-	level,
-	sequence,
-	usedBlockCount,
-	usedIterations,
-}: OutcomeDetailsProperties) {
+function OutcomeDetails({ level, usedBlockCount }: OutcomeDetailsProperties) {
 	return (
-		<>
-			<BlockCountFeedback
-				usedBlockCount={usedBlockCount}
-				optimalBlockCount={level.optimalActionCount}
-			/>
-			<Activity
-				when={level.optimalIterations !== undefined}
-				children={
-					<IterationFeedback
-						usedIterations={usedIterations}
-						optimalIterations={level.optimalIterations}
-						hasExcessRepetitions={detectExcessRepetitions(sequence, level, usedIterations)}
-					/>
-				}
-			/>
-		</>
+		<BlockCountFeedback
+			usedBlockCount={usedBlockCount}
+			optimalBlockCount={level.optimalActionCount}
+		/>
 	);
 }
 
-export { BlockCountFeedback, IterationFeedback, OutcomeDetails };
+export { BlockCountFeedback, OutcomeDetails };

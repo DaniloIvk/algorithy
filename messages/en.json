@@ -156,37 +156,6 @@
 			}
 		}
 	],
-	"outcome_details_cycles_over": [
-		{
-			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
-			"selectors": ["usedPlural"],
-			"match": {
-				"usedPlural=one": "You used {used} cycle, but the ideal is {optimal}. Try to reduce cycles.",
-				"usedPlural=other": "You used {used} cycles, but the ideal is {optimal}. Try to reduce cycles."
-			}
-		}
-	],
-	"outcome_details_cycles_over_repetitions": "The solution is correct, but the loop repeats more times than necessary.",
-	"outcome_details_cycles_perfect": [
-		{
-			"declarations": ["input used", "local usedPlural = used: plural"],
-			"selectors": ["usedPlural"],
-			"match": {
-				"usedPlural=one": "Perfect! {used} cycle - ideal for this level.",
-				"usedPlural=other": "Perfect! {used} cycles - ideal for this level."
-			}
-		}
-	],
-	"outcome_details_cycles_under": [
-		{
-			"declarations": ["input used", "input optimal", "local usedPlural = used: plural"],
-			"selectors": ["usedPlural"],
-			"match": {
-				"usedPlural=one": "Incredible! You used only {used} cycle - we thought {optimal} was minimal. You beat our estimate!",
-				"usedPlural=other": "Incredible! You used only {used} cycles - we thought {optimal} was minimal. You beat our estimate!"
-			}
-		}
-	],
 	"outcome_modal_aria_label": "Level completed",
 	"outcome_modal_next_level": "Next level",
 	"outcome_modal_title_won": "Reached target!",
