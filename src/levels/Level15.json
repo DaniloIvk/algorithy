@@ -35,23 +35,20 @@
 			"terrain": "ice"
 		}
 	},
-	"optimalActionCount": 6,
-	"optimalIterations": 18,
+	"optimalActionCount": 5,
+	"optimalIterations": 20,
 	"optimalSolution": [
 		{
 			"action": "turn-right"
 		},
 		{
-			"action": "move-forward"
-		},
-		{
 			"action": "while",
 			"children": [
 				{
-					"action": "turn-left"
+					"action": "move-forward"
 				},
 				{
-					"action": "move-forward"
+					"action": "turn-left"
 				}
 			]
 		}
